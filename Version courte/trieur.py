@@ -159,7 +159,7 @@ for line in lines:
 
 
 #Si la variable "profondeur" contient les éléments 0 ou 10, on les rends égals à 1 pour le futur calcul du prix
-    if elements[4] in ["0","10"]:
+    if elements[4] in ["0","1"]:
         data[num]["profondeur"] = 1
 
 #Calcul du prix des oeuvres selon la cote officielle AKOUN ((lxLxP*600)3250)
@@ -172,7 +172,7 @@ for line in lines:
 #On enregistre les éléments dans leur dossiers respectifs en incluant le prix à la fin, on enleve la profondeur si elle contient les éléments 0, 1 ou 10.
     with open(f"{data[num]['type']}/{data[num]['type']}.txt", "a") as f:
 
-            if elements[4] in ["0","10"]:
+            if elements[4] in ["0","1"]:
                 f.write(f"{num} {data[num]['type']} {data[num]['longueur']}{'cm x '}{data[num]['largeur']}{'cm'} {data[num]['nom']} {data[num]['prix']}\n")
             else : 
                 f.write(f"{num} {data[num]['type']} {data[num]['longueur']}{'cm x '}{data[num]['largeur']}{'cm'} {data[num]['profondeur']} {data[num]['nom']} {data[num]['prix']}\n")
