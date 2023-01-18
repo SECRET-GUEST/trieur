@@ -52,5 +52,3 @@ Il est important de noter que la profondeur est particulière ;
 **ʳᵉᵐᵃʳᑫᵘᵉ Le type de votre liste NE DEVRA CONTENIR QU'UN SEUL MOT !! Et votre liste ne devra pas contenir de caractère spéciaux tels que "é" ou "+", cela doit rester le plus neutre possible, parceque c'est tout simplement plus rapide comme ca lors de la prise de notes et de l'écriture du programme** .
 
 Les noms de dossiers et des listes seront attribués en fonction du nom du **type** .
-
-Voila, je ne sais pas si ca sera utile à quelqun mais bon ... je m'en tape un peu au fond.
