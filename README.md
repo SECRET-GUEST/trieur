@@ -64,3 +64,5 @@ Les noms de dossiers et des listes seront attribués en fonction du nom du **typ
 Peu de changements sont à prévoir, étant un outil hyper spécifique et probablement peu utile, je compte tout de meme créer une application executable pour mac android Iphone et bien entendu windows.
 
 Je rajouterai un moyen de modifier la valeur de la cote par l'interface visuelle, une fenetre un peu plus ergonomique, ainsi qu'un peu de frontend.
+
+Bien entendu ces perspectives d'évolution pourraient évoluer avec le temps en fonction de mes besoins ou des votres.
