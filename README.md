@@ -54,7 +54,7 @@ Il est important de noter que la profondeur est particulière ;
 
 - [ ] Donner n'importe quelle autre valeur la rendra éffective dans le calcul, arrondissez à l'unité pour éviter les erreurs.
 
-**ʳᵉᵐᵃʳᑫᵘᵉ Le type de votre liste NE DEVRA CONTENIR QU'UN SEUL MOT !! Et votre liste ne devra pas contenir de caractère spéciaux tels que "é" ou "+", cela doit rester le plus neutre possible, parceque c'est tout simplement plus rapide comme ca lors de la prise de notes et de l'écriture du programme** .
+**ʳᵉᵐᵃʳᑫᵘᵉ Le *type* de votre liste NE DEVRA CONTENIR QU'UN SEUL MOT !! Et il ne devra pas contenir de caractère spéciaux tels que "é" ou "+", cela doit rester le plus neutre possible**, c'est tout simplement plus rapide comme ca lors de la prise de notes et de l'écriture du programme.
 
 Les noms de dossiers et des listes seront attribués en fonction du nom du **type** .
 
