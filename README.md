@@ -57,3 +57,10 @@ Il est important de noter que la profondeur est particulière ;
 **ʳᵉᵐᵃʳᑫᵘᵉ Le type de votre liste NE DEVRA CONTENIR QU'UN SEUL MOT !! Et votre liste ne devra pas contenir de caractère spéciaux tels que "é" ou "+", cela doit rester le plus neutre possible, parceque c'est tout simplement plus rapide comme ca lors de la prise de notes et de l'écriture du programme** .
 
 Les noms de dossiers et des listes seront attribués en fonction du nom du **type** .
+
+
+## Avenir de l'application 
+
+Peu de changements sont à prévoir, étant un outil hyper spécifique et probablement peu utile, je compte tout de meme créer une application executable pour mac android Iphone et bien entendu windows.
+
+Je rajouterai un moyen de modifier la valeur de la cote par l'interface visuelle, une fenetre un peu plus ergonomique, ainsi qu'un peu de frontend.
