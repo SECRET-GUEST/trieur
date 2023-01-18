@@ -29,7 +29,7 @@ liste.txt
 
 numero | type d'oeuvre | longueur x largeur x profondeur | nom de l'oeuvre
 
-*Par exemple : *
++ Par exemple :
 
 - [ ] 1 3D 300 200 0 le petit charles
 
