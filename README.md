@@ -21,23 +21,23 @@ Les autres fichiers sont des programmes récupérant les éléments de la liste 
 
 Voici comment la liste doit etre écrite:
 
-Nom : 
++ Nom : 
 
 liste.txt
 
-Contenu :
++ Contenu :
 
 numero | type d'oeuvre | longueur x largeur x profondeur | nom de l'oeuvre
 
-Par exemple : 
+*Par exemple : *
 
-1 3D 300 200 0 le petit charles
+- [ ] 1 3D 300 200 0 le petit charles
 
-2 numerique 200 50 1 jean-luc
+- [ ] 2 numerique 200 50 1 jean-luc
 
-3 pastel 600 400 10 internet vapor wave 404
+- [ ] 3 pastel 600 400 10 internet vapor wave 404
 
-4 3D 50 20 52 100% giro
+- [ ] 4 3D 50 20 52 100% giro
 
 ...
 
