@@ -41,6 +41,11 @@ numero | type d'oeuvre | longueur x largeur x profondeur | nom de l'oeuvre
 
 ...
 
+Le résultat apparaitra donc comme celui ci ;
+
+![screenshot](https://user-images.githubusercontent.com/92639080/213278592-8f9156e8-7d56-40b8-a6d1-0ffe466edfe2.png)
+
+
 Il est important de noter que la profondeur est particulière ; 
 
 - [ ] Donner 1 en profondeur pour vos oeuvres produites sur un support tel que le papier, cela annulera la prise en compte de la profondeur dans le calcul de la cote, mais la variable pourra tout de meme etre réutilisée plus tards si besoin.
