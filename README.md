@@ -9,6 +9,9 @@ Python version 3.11.1 | Optimal avec windows 10
                                             
 ```
 
+![trieur](https://user-images.githubusercontent.com/92639080/213414052-e6f980b0-02f0-4785-af57-be51a2e5984f.png)
+
+
 # Présentation : 
 
 Comme dit dans l'énnoncé, ce programme très spécifique sert aux artistes cotés AKOUN tels que Nathacha , artiste peintre de l'abstraction https://www.artnathacha.com/ , à créer plus rapidement une liste de prix relative à leu cotation pour leurs oeuvres. (ou à des fins éducatives)
@@ -66,3 +69,4 @@ Peu de changements sont à prévoir, étant un outil hyper spécifique et probab
 Je rajouterai un moyen de modifier la valeur de la cote par l'interface visuelle, une fenetre un peu plus ergonomique, ainsi qu'un peu de frontend.
 
 Bien entendu ces perspectives d'évolution pourraient changer avec le temps en fonction de mes besoins ou des votres.
+
