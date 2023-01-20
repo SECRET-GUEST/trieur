@@ -15,9 +15,9 @@ Ce "logiciel" permet le tri de votre liste, vous pouvez également télécharger
 
 Vous pouvez créer vous meme l'executable depuis le fichier python, il vous suffira d'installer auto-py-to-exe et python pour créer un executable, voici la marche à suivre:
 
-- [] Téléchargez python 3.11.1 depuis ce lien : https://www.python.org/ftp/python/3.11.1/python-3.11.1-amd64.exe
+- [ ] Téléchargez python 3.11.1 depuis ce lien : https://www.python.org/ftp/python/3.11.1/python-3.11.1-amd64.exe
 
-- [] Ouvrez votre CMD en administrateur et entrez la commande suivante ;
+- [ ] Ouvrez votre CMD en administrateur et entrez la commande suivante ;
 
 ```
 pip install auto-py-to-exe
