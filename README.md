@@ -65,7 +65,7 @@ Les noms de dossiers et des listes seront attribués en fonction du nom du **typ
 
 ## Avenir de l'application 
 
-Peu de changements sont à prévoir, étant un outil hyper spécifique et probablement peu utile, je compte tout de meme créer une application executable pour mac android Iphone et bien entendu windows.
+Peu de changements sont à prévoir, étant un outil hyper spécifique.
 
-Bien entendu ces perspectives d'évolution pourraient changer avec le temps en fonction de mes besoins ou des votres.
+Bien entendu je reste ouvert à d'éventuelles perspective d'évolution.
 
