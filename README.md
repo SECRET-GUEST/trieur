@@ -9,7 +9,6 @@ Python version 3.11.1 | Optimal avec windows 10
                                             
 ```
 
-![trieur](https://user-images.githubusercontent.com/92639080/213414052-e6f980b0-02f0-4785-af57-be51a2e5984f.png)
 
 
 # Présentation : 
@@ -48,7 +47,7 @@ numero | type d'oeuvre | longueur x largeur x profondeur | nom de l'oeuvre
 
 Le résultat apparaitra donc comme celui ci ;
 
-![screenshot](https://user-images.githubusercontent.com/92639080/213278592-8f9156e8-7d56-40b8-a6d1-0ffe466edfe2.png)
+![screen 2](https://user-images.githubusercontent.com/92639080/213637497-321cc25d-9db5-47a3-a0d1-a6dd88da575b.png)
 
 
 Il est important de noter que la profondeur est particulière ; 
