@@ -11,7 +11,7 @@ Python version 3.11.1 |Optimisé pour windows 10
 
 # Instructions :
 
-Ce "logiciel" permet le tri de votre liste, vous pouvez télécharger une version portable/executable par simple clic ici : https://sourceforge.net/projects/trieur/files/
+Ce "logiciel" permet le tri de votre liste, vous pouvez également télécharger une version portable/executable par simple clic ici : https://sourceforge.net/projects/trieur/files/
 
 Vous pouvez créer vous meme l'executable depuis le fichier python, il vous suffira d'installer auto-py-to-exe et python pour créer un executable, voici la marche à suivre:
 
