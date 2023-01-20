@@ -15,8 +15,6 @@ Python version 3.11.1 | Optimal avec windows 10
 
 Comme dit dans l'énnoncé, ce programme très spécifique sert aux artistes cotés AKOUN tels que Nathacha , artiste peintre de l'abstraction https://www.artnathacha.com/ , à créer plus rapidement une liste de prix relative à leu cotation pour leurs oeuvres. (ou à des fins éducatives).
 
-La cote AKOUN pour ce programme est fixée à 3250, il faut la changer dans le code python directement, pour le moment.
-
 ## Contenu :
 
 Ce repertoire contient plusieurs éléments, le premier étant un fichier .bat, il suffit de le télécharger et de cliquer dessus pour qu'il fasse une liste de tout ce qui se trouve dans le répertoire ou il a été éxécuté.
