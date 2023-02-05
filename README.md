@@ -25,7 +25,14 @@ Ce repertoire contient plusieurs éléments, le premier étant un fichier .bat, 
 
 Les autres fichiers sont des programmes récupérant les éléments de la liste ligne par lignes, si les informatiions sont correctement écrites dans l'ordre décris plus bas, elles seront acheminées vers de nouveaux dossiers (ou ceux déja existant), venant completer de nouvelles listes, ou en créer de nouvelles.
 
+ⁿᵒᵗᵉ Il est désormais possible de créer des listes directement grace au logiciel.
+
+Pour cela, il suffit de sélectionner le dossier contenant les images, le programmes supprimera TOUT les caractères spéciaux directement dans le noms des images originales, puis établira une liste de ces dernière qui pourra directement etre utilisée pour la suite si les données inscrite sont correcte.
+
+Pour que les données soient correcte, il faut impérativement que le dossier sélectionner soit écrit en un seul mot, par exemple il faudra remplacer "art numérique" par "numérique", sinon vous aurez un message d'erreur.
+
 Voici comment la liste doit etre écrite:
+
 
 + Nom : 
 
@@ -43,13 +50,11 @@ numero | type d'oeuvre | longueur x largeur x profondeur | nom de l'oeuvre
 
 - [ ] 3 pastel 600 400 10 internet vapor wave 404
 
-- [ ] 4 3D 50 20 52 100% giro
-
 ...
 
-Le résultat apparaitra donc comme celui ci ;
+Voici un exemple d'utilisation du logiciel ;
 
-![screen 2](https://user-images.githubusercontent.com/92639080/213637497-321cc25d-9db5-47a3-a0d1-a6dd88da575b.png)
+![beta2](https://user-images.githubusercontent.com/92639080/216796498-58d8baf0-892f-4680-a1ce-fe1a1936abd2.jpg)
 
 
 Il est important de noter que la profondeur est particulière ; 
@@ -63,11 +68,4 @@ Il est important de noter que la profondeur est particulière ;
 **ʳᵉᵐᵃʳᑫᵘᵉ Le *type* de votre liste NE DEVRA CONTENIR QU'UN SEUL MOT !! Et il ne devra pas contenir de caractère spéciaux tels que "é" ou "+", cela doit rester le plus neutre possible**, c'est tout simplement plus rapide comme ca lors de la prise de notes et de l'écriture du programme.
 
 Les noms de dossiers et des listes seront attribués en fonction du nom du **type** .
-
-
-## Avenir de l'application 
-
-Peu de changements sont à prévoir, étant un outil hyper spécifique.
-
-Bien entendu je reste ouvert à d'éventuelles perspective d'évolution.
 
