@@ -27,7 +27,7 @@ Les autres fichiers sont des programmes récupérant les éléments de la liste 
 
 ⁿᵒᵗᵉ Il est désormais possible de créer des listes directement grace au logiciel.
 
-Pour cela, il suffit de sélectionner le dossier contenant les images, le programmes supprimera TOUT les caractères spéciaux directement dans le noms des images originales, puis établira une liste de ces dernière qui pourra directement etre utilisée pour la suite si les données inscrite sont correcte.
+Pour cela, il suffit de sélectionner le dossier contenant les images, désigner si les oeuvres sont numériques ou non, le programmes supprimera alors TOUT les caractères spéciaux directement dans le noms des images originales, puis établira une liste de ces dernière qui pourra directement etre utilisée pour la suite si les données inscrite sont correcte.
 
 Pour que les données soient correcte, il faut impérativement que le dossier sélectionner soit écrit en un seul mot, par exemple il faudra remplacer "art numérique" par "numérique", sinon vous aurez un message d'erreur.
 
@@ -52,7 +52,7 @@ numero | type d'oeuvre | longueur x largeur x profondeur | nom de l'oeuvre
 
 ...
 
-Voici un exemple d'utilisation du logiciel ;
+Voici un exemple d'utilisation du logiciel pour des oeuvres numérique ;
 
 ![beta2](https://user-images.githubusercontent.com/92639080/216796498-58d8baf0-892f-4680-a1ce-fe1a1936abd2.jpg)
 
