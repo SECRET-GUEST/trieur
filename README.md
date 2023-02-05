@@ -52,10 +52,11 @@ numero | type d'oeuvre | longueur x largeur x profondeur | nom de l'oeuvre
 
 ...
 
-Voici un exemple d'utilisation du logiciel pour des oeuvres numérique ;
+Voici un exemple d'utilisation du logiciel pour un dossier contenant des oeuvres numérique ;
 
 ![beta2](https://user-images.githubusercontent.com/92639080/216796498-58d8baf0-892f-4680-a1ce-fe1a1936abd2.jpg)
 
+ⁿᵒᵗᵉ Le logiciel est capable de taiter une liste contenant plusieurs types de dossiers, il triera et rangera les données dans des dossiers/des listes existantes ou non, sans effacer celles qui s'y trouvent déja.
 
 Il est important de noter que la profondeur est particulière ; 
 
