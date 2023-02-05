@@ -17,7 +17,7 @@ Comme dit dans l'énnoncé, ce programme très spécifique sert aux artistes cot
 
 ⁿᵒᵗᵉ Un bon anti-malware vous donnera toujours un faux positif pour le fichier .exe puisqu'il n'est pas signé, cependant vous avez le code et j'ai meme écris une notice sur comment compiler le programme vous meme.
 
-[![Download Layer-one](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/layer1/files/latest/download)
+[![Download AKOUN trieur](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/trieur/files/latest/download)
 
 ## Contenu :
 
