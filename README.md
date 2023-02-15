@@ -1,4 +1,4 @@
-Trieur version beta 2 | Python version 3.11.1 | 🇫🇷 | Optimal avec windows 10 [![Download AKOUN trieur](https://img.shields.io/sourceforge/dt/trieur.svg)](https://sourceforge.net/projects/trieur/files/latest/download)
+Trieur version beta 3 | Python version 3.11.1 | 🇫🇷 | Optimal avec windows 10 [![Download AKOUN trieur](https://img.shields.io/sourceforge/dt/trieur.svg)](https://sourceforge.net/projects/trieur/files/latest/download)
 ```
 ██╗     ██╗███████╗████████╗███████╗███████╗
 ██║     ██║██╔════╝╚══██╔══╝██╔════╝██╔════╝
