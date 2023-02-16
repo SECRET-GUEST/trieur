@@ -15,7 +15,7 @@ Trieur version beta 3 | Python version 3.11.1 | 🇫🇷 | Optimal avec windows 
 
 Comme dit dans l'énnoncé, ce programme très spécifique sert aux artistes cotés AKOUN tels que Nathacha , artiste peintre de l'abstraction https://www.artnathacha.com/ , à créer plus rapidement une liste de prix relative à leu cotation pour leurs oeuvres. (ou à des fins éducatives).
 
-ⁿᵒᵗᵉ Un bon anti-malware vous donnera toujours un faux positif pour le fichier .exe puisqu'il n'est pas signé, cependant vous avez le code et j'ai meme écris une notice sur comment compiler le programme vous meme.
+ⁿᵒᵗᵉ *Un bon anti-malware vous donnera toujours un faux positif pour le fichier .exe puisqu'il n'est pas signé, cependant vous avez le code et j'ai meme écris une notice sur comment compiler le programme vous meme.*
 
 [![Download AKOUN trieur](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/trieur/files/latest/download)
 
@@ -25,9 +25,9 @@ Ce repertoire contient plusieurs éléments, le premier étant un fichier .bat, 
 
 Les autres fichiers sont des programmes récupérant les éléments de la liste ligne par lignes, si les informatiions sont correctement écrites dans l'ordre décris plus bas, elles seront acheminées vers de nouveaux dossiers (ou ceux déja existant), venant completer de nouvelles listes, ou en créer de nouvelles.
 
-ⁿᵒᵗᵉ Il est désormais possible de créer des listes directement grace au logiciel.
+ⁿᵒᵗᵉ *Il est désormais possible de créer des listes directement grace au logiciel.*
 
-ⁿᵒᵗᵉ Si le dossier selectionné lors de la création de liste contient des sous-dossiers, ces derniers seront pris en compte lors de la créations des listes, le programme renommera également toute les images contenues dans les dossiers pour supprimer les caractères sépciaux.
+ⁿᵒᵗᵉ *Si le dossier selectionné lors de la création de liste contient des sous-dossiers, ces derniers seront pris en compte lors de la créations des listes, le programme renommera également toute les images contenues dans les dossiers pour supprimer les caractères sépciaux.*
 
 Pour cela, il suffit de sélectionner le dossier contenant les images, ou contenant les sous-dossiers, désigner si les oeuvres sont numériques ou non, le programmes supprimera alors TOUT les caractères spéciaux directement dans le noms des images originales, puis établira une liste de ces dernière qui pourra directement etre utilisée pour la suite si les données inscrite sont correcte.
 
@@ -61,7 +61,7 @@ Voici un exemple d'utilisation du logiciel pour un dossier contenant des oeuvres
 
 ![beta2](https://user-images.githubusercontent.com/92639080/216796498-58d8baf0-892f-4680-a1ce-fe1a1936abd2.jpg)
 
-ⁿᵒᵗᵉ Le logiciel est capable de taiter une liste contenant plusieurs types de dossiers, il triera et rangera les données dans des dossiers/des listes existantes ou non, sans effacer celles qui s'y trouvent déja.
+ⁿᵒᵗᵉ *Le logiciel est capable de taiter une liste contenant plusieurs types de dossiers, il triera et rangera les données dans des dossiers/des listes existantes ou non, sans effacer celles qui s'y trouvent déja.*
 
 Il est important de noter que la profondeur est particulière ; 
 
