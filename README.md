@@ -19,6 +19,13 @@ Comme dit dans l'énnoncé, ce programme très spécifique sert aux artistes cot
 
 [![Download AKOUN trieur](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/trieur/files/latest/download)
 
+## Changements à venir :
+
+- [ ] Possibilité de modification des métadonnées de toute les images d'un dossier traité (utile pour le référencement google par exemple).
+- [ ] Correction du noms de toute les images présentes dans tout le dossier/sous dossiers selectionnés.
+- [ ] Extracteur de métadonnées (La fonction est déja créée mais je ne l'implémenterai pas tout de suite, laissez des commentaires sur ma chaine youtube si vous y tenez vraimen)
+- [ ] Interface visuelle soignée qui marquera la fin de la beta.
+
 ## Contenu :
 
 Ce repertoire contient plusieurs éléments, le premier étant un fichier .bat, il suffit de le télécharger et de cliquer dessus pour qu'il fasse une liste de tout ce qui se trouve dans le répertoire ou il a été éxécuté.
