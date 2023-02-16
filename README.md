@@ -26,12 +26,16 @@ Ce repertoire contient plusieurs éléments, le premier étant un fichier .bat, 
 Les autres fichiers sont des programmes récupérant les éléments de la liste ligne par lignes, si les informatiions sont correctement écrites dans l'ordre décris plus bas, elles seront acheminées vers de nouveaux dossiers (ou ceux déja existant), venant completer de nouvelles listes, ou en créer de nouvelles.
 
 ⁿᵒᵗᵉ Il est désormais possible de créer des listes directement grace au logiciel.
+ⁿᵒᵗᵉ Si le dossier selectionné lors de la création de liste contient des sous-dossiers, ces derniers seront pris en compte lors de la créations des listes, le programme renommera également toute les images contenues dans les dossiers pour supprimer les caractères sépciaux.
 
-Pour cela, il suffit de sélectionner le dossier contenant les images, désigner si les oeuvres sont numériques ou non, le programmes supprimera alors TOUT les caractères spéciaux directement dans le noms des images originales, puis établira une liste de ces dernière qui pourra directement etre utilisée pour la suite si les données inscrite sont correcte.
+Pour cela, il suffit de sélectionner le dossier contenant les images, ou contenant les sous-dossiers, désigner si les oeuvres sont numériques ou non, le programmes supprimera alors TOUT les caractères spéciaux directement dans le noms des images originales, puis établira une liste de ces dernière qui pourra directement etre utilisée pour la suite si les données inscrite sont correcte.
 
 Pour que les données soient correcte, il faut impérativement que le dossier sélectionner soit écrit en un seul mot, par exemple il faudra remplacer "art numérique" par "numérique", sinon vous aurez un message d'erreur.
 
-Voici comment la liste doit etre écrite:
+Si vous recevez un message d'erreurs et que vous cliquez sur "ca coince ici", le programme créera un log d'erreur qui sera situé à la racine de la ou vous avez lancer le logiciel, ce log s'affichera ensuite automatiquement vous indiquant le problème à l'aide de python
+
+
+Cependant si vous désirez écrire vous meme ou réécrire les donénes présentes dans la listte, voici comment elle devra etre formatée:
 
 
 + Nom : 
