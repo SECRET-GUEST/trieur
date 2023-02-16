@@ -23,7 +23,7 @@ Comme dit dans l'énnoncé, ce programme très spécifique sert aux artistes cot
 
 Ce repertoire contient plusieurs éléments, le premier étant un fichier .bat, il suffit de le télécharger et de cliquer dessus pour qu'il fasse une liste de tout ce qui se trouve dans le répertoire ou il a été éxécuté.
 
-Les autres fichiers sont des programmes récupérant les éléments de la liste ligne par lignes, si les informatiions sont correctement écrites dans l'ordre décris plus bas, elles seront acheminées vers de nouveaux dossiers (ou ceux déja existant), venant completer de nouvelles listes, ou en créer de nouvelles.
+Les autres fichiers sont des programmes récupérant les éléments de la liste ligne par lignes, si les informations sont correctement écrites dans l'ordre décris plus bas, elles seront acheminées vers de nouveaux dossiers (ou ceux déja existant), venant completer de nouvelles listes, ou en créer de nouvelles.
 
 ⁿᵒᵗᵉ *Il est désormais possible de créer des listes directement grace au logiciel.*
 
