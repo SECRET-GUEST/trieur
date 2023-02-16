@@ -1,1 +1,0 @@
- dir *.* /B >Liste.txt
