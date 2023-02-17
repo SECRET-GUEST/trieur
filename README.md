@@ -21,9 +21,7 @@ Comme dit dans l'énnoncé, ce programme très spécifique sert aux artistes cot
 
 ## Changements à venir :
 
-- [ ] Possibilité de modification des métadonnées de toute les images d'un dossier traité (utile pour le référencement google par exemple).
 - [ ] Correction du nom de chaque images présentes dans tout le dossier, incluant celles présentes dans les sous dossiers.
-- [ ] Extracteur de métadonnées (La fonction est déja créée mais je ne l'implémenterai pas tout de suite, laissez des commentaires sur ma chaine youtube si vous y tenez vraimen)
 - [ ] Interface visuelle soignée qui marquera la fin de la beta.
 
 ## Contenu :
