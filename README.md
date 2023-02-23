@@ -40,6 +40,7 @@ Ce bouton permet de renommer toute les images contenues dans un dossier choisi, 
 
 ⁿᵒᵗᵉ *Il est recommandé d'utiliser la fonction de renommage sur une copie de votre dossier afin d'éviter les erreurs, par exemple si vous l'utilisez sur un ordinateur windows, sur des fichiers déja numérotés, les fichiers seront renommés dans cet ordre : 1 10 11 110 111111 2 3 4 .... ce qui peut entrainer pas mal d'erreurs (merci microsoft).*
 
+ⁿᵒᵗᵉ *Un correcteur est à venir, dans l'idéal j'aimerai qu'il supprime toute données superflue des listes et qu'il corrige la grammaire, il est déja en cours de fabrication, mais pour le moment il est seulement capable de retirer les valeurs "type" 30x40x32cm des listes, et n'est pas encore inclut dans le logiciel.*
 
 ## 3. Chercher la liste
 
@@ -49,13 +50,13 @@ Cette fonction permet de simplement chercher sur quelle liste vous allez travail
 
 Ici vous devez, comme indiquer, entrer votre cote AKOUN.
 
-## 5. GO :
+## 5. GO!
 
 L'algorithme va trier toutes les données de votre liste si ces dernières sont au bon format. Il créera si besoin de nouveaux dossiers au nom du type de l'oeuvre, ainsi que des listes à l'interieur contenant la liste propre avec le prix des oeuvres.
 
-ⁿᵒᵗᵉ *A venir : apres avoir effectué son tri, le programme assignera à vos images numérotées le nom correspondant au premier numéro de la liste*
+ⁿᵒᵗᵉ *A venir : apres avoir effectué son tri, le programme assignera à vos images numérotées, le nom correspondant au premier numéro de la liste*
 
-Si vous désirez écrire vous meme ou réécrire les données présentes, voici comment elle vous devrez procéder :
+Si vous désirez écrire vous meme ou réécrire les données présentes, voici comment vous devrez procéder :
 
 numero | type d'oeuvre | longueur x hauteur x profondeur | nom de l'oeuvre
 
