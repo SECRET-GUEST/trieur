@@ -13,7 +13,7 @@ Trieur version beta 3 | Python version 3.11.1 | 🇫🇷 | Optimal avec windows 
 
 # Présentation : 
 
-Comme dit dans l'énnoncé, ce programme très spécifique sert aux artistes cotés AKOUN tels que Nathacha , artiste peintre de l'abstraction https://www.artnathacha.com/ , à créer plus rapidement une liste de prix relative à leu cotation pour leurs oeuvres. (ou à des fins éducatives).
+Comme dit dans l'énnoncé, ce logiciel permet aux artistes cotés AKOUN tels que Nathacha , artiste peintre de l'abstraction https://www.artnathacha.com/ , à créer plus rapidement une liste de prix relative à leu cotation pour leurs oeuvres (ou à des fins éducatives). Il permet également de manipuler ces listes ainsi que les fichiers, dans le but de les trier, manipuler plus facilement.
 
 ⁿᵒᵗᵉ *Un bon anti-malware vous donnera toujours un faux positif pour le fichier .exe puisqu'il n'est pas signé, cependant vous avez le code et j'ai meme écris une notice sur comment compiler le programme vous meme.*
 
@@ -24,33 +24,40 @@ Comme dit dans l'énnoncé, ce programme très spécifique sert aux artistes cot
 - [ ] Correction du nom de chaque images présentes dans tout le dossier, incluant celles présentes dans les sous dossiers.
 - [ ] Interface visuelle soignée qui marquera la fin de la beta.
 
-## Contenu :
-
-Ce repertoire contient plusieurs éléments, le premier étant un fichier .bat, il suffit de le télécharger et de cliquer dessus pour qu'il fasse une liste de tout ce qui se trouve dans le répertoire ou il a été éxécuté.
-
-Les autres fichiers sont des programmes récupérant les éléments de la liste ligne par lignes, si les informations sont correctement écrites dans l'ordre décris plus bas, elles seront acheminées vers de nouveaux dossiers (ou ceux déja existant), venant completer de nouvelles listes, ou en créer de nouvelles.
-
-ⁿᵒᵗᵉ *Il est désormais possible de créer des listes directement grace au logiciel.*
-
-ⁿᵒᵗᵉ *Si le dossier selectionné lors de la création de liste contient des sous-dossiers, ces derniers seront pris en compte lors de la créations des listes, le programme renommera également toute les images contenues dans les dossiers pour supprimer les caractères sépciaux.*
-
-Pour cela, il suffit de sélectionner le dossier contenant les images, ou contenant les sous-dossiers, désigner si les oeuvres sont numériques ou non, le programmes supprimera alors TOUT les caractères spéciaux directement dans le noms des images originales, puis établira une liste de ces dernière qui pourra directement etre utilisée pour la suite si les données inscrite sont correcte.
-
-Pour que les données soient correcte, il faut impérativement que le dossier sélectionner soit écrit en un seul mot, par exemple il faudra remplacer "art numérique" par "numérique", sinon vous aurez un message d'erreur.
-
-Si vous recevez un message d'erreurs et que vous cliquez sur "ca coince ici", le programme créera un log d'erreur qui sera situé à la racine de la ou vous avez lancer le logiciel, ce log s'affichera ensuite automatiquement vous indiquant le problème à l'aide de python
+# Contenu et utilisation:
 
 
-Cependant si vous désirez écrire vous meme ou réécrire les donénes présentes dans la listte, voici comment elle devra etre formatée:
+## 1. Bouton de création d'une liste; 
+
+ce dernier permet de sélectionner un dossier. Ceci fait, il prendra en compte tout les fichiers images contenus dans ce dossier ainsi que dans les sous-dossiers, et établira des listes de ces dernières informations dans chaque dossiers, avec une liste principale contenant toute les données de chaque listes additionnées.
+
+ⁿᵒᵗᵉ *Vous pouvez ajouter des données de tailles, telles que 50x40x35cm ou 09x01cm "longueur"x"hauteur"x"profondeur"cm. le formatage doit se faire sans majuscules, sans espaces, et avec un cm a la fin, un programme viendra corriger vos fautes d'innatention mais il n'est pas infaillible, donc essayez d'éviter les erreurs.*
 
 
-+ Nom : 
+## 2. Renommer les images
 
-liste.txt
+Ce bouton permet de renommer toute les images contenues dans un dossier choisi, **AINSI QUE** toute celles présente dans les sous-dossiers inclus dans ce dernier. Le renommage se fera selon une suite 1 2 3 4 5 ...
 
-+ Contenu :
+ⁿᵒᵗᵉ *Il est recommandé d'utiliser la fonction de renommage sur une copie de votre dossier afin d'éviter les erreurs, par exemple si vous l'utilisez sur un ordinateur windows, sur des fichiers déja numérotés, les fichiers seront renommés dans cet ordre : 1 10 11 110 111111 2 3 4 .... ce qui peut entrainer pas mal d'erreurs (merci microsoft).*
 
-numero | type d'oeuvre | longueur x largeur x profondeur | nom de l'oeuvre
+
+## 3. Chercher la liste
+
+Cette fonction permet de simplement chercher sur quelle liste vous allez travailler
+
+## 4. Cote Akoun
+
+Ici vous devez, comme indiquer, entrer votre cote AKOUN.
+
+## 5. GO :
+
+L'algorithme va trier toutes les données de votre liste si ces dernières sont au bon format. Il créera si besoin de nouveaux dossiers au nom du type de l'oeuvre, ainsi que des listes à l'interieur contenant la liste propre avec le prix des oeuvres.
+
+ⁿᵒᵗᵉ *A venir : apres avoir effectué son tri, le programme assignera à vos images numérotées le nom correspondant au premier numéro de la liste*
+
+Si vous désirez écrire vous meme ou réécrire les données présentes, voici comment elle vous devrez procéder :
+
+numero | type d'oeuvre | longueur x hauteur x profondeur | nom de l'oeuvre
 
 + Par exemple :
 
