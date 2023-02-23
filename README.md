@@ -24,6 +24,13 @@ Comme dit dans l'énnoncé, ce logiciel permet aux artistes cotés AKOUN tels qu
 - [ ] Correction du nom de chaque images présentes dans tout le dossier, incluant celles présentes dans les sous dossiers.
 - [ ] Interface visuelle soignée qui marquera la fin de la beta.
 
+
+
+Voici un apercus du logiciel (Version beta 5) : 
+
+![Capture d’écran 2023-02-23 183814](https://user-images.githubusercontent.com/92639080/220986434-4e2b4630-68cf-4fd6-8a5a-e6e4c5a128b0.png)
+
+
 # Contenu et utilisation:
 
 
@@ -70,7 +77,7 @@ numero | type d'oeuvre | longueur x hauteur x profondeur | nom de l'oeuvre
 
 ...
 
-Voici un exemple d'utilisation du logiciel pour un dossier contenant des oeuvres numérique ;
+Voici un exemple d'utilisation du logiciel pour un dossier contenant des oeuvres numérique (Version : beta 3);
 
 ![beta2](https://user-images.githubusercontent.com/92639080/216796498-58d8baf0-892f-4680-a1ce-fe1a1936abd2.jpg)
 
