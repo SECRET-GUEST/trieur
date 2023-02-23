@@ -40,7 +40,7 @@ Ce bouton permet de renommer toute les images contenues dans un dossier choisi, 
 
 ⁿᵒᵗᵉ *Il est recommandé d'utiliser la fonction de renommage sur une copie de votre dossier afin d'éviter les erreurs, par exemple si vous l'utilisez sur un ordinateur windows, sur des fichiers déja numérotés, les fichiers seront renommés dans cet ordre : 1 10 11 110 111111 2 3 4 .... ce qui peut entrainer pas mal d'erreurs (merci microsoft).*
 
-ⁿᵒᵗᵉ *Un correcteur est à venir, dans l'idéal j'aimerai qu'il supprime toutes données superflue des listes et qu'il corrige la grammaire, il est déja en cours de fabrication, mais pour le moment il est seulement capable de retirer les valeurs "type" 30x40x32cm des listes, et n'est pas encore inclut dans le logiciel.*
+ⁿᵒᵗᵉ *Un correcteur est à venir, dans l'idéal j'aimerai qu'il supprime toutes données superflue des listes et qu'il corrige la grammaire, il est déja en cours de fabrication, mais pour le moment il est seulement capable de retirer les valeurs "type" 30x40x32cm des listes ainsi que d'autres données plus personnelles, il n'est pas encore inclut dans le logiciel.*
 
 ## 3. Chercher la liste
 
