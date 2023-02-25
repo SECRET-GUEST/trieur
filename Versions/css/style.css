@@ -1,0 +1,52 @@
+
+QWidget {
+    background-color: #292929;
+    color: white;
+}
+QPushButton {
+    font-size: 16px;
+}
+
+QPushButton#list_maker {
+    background-color: #ffe600;
+    color: black;
+}
+
+QPushButton#renamer {
+    background-color: #ffe600;
+    color: black;
+}
+
+QPushButton#launch {
+    background-color: #ffe600;
+    color: black;
+    font-size: 18px;
+}
+
+QTextBrowser {
+    background-color: #404040;
+    color: white;
+    border: 1px solid black;
+    font-size: 12px;
+}
+
+QMessageBox#akoun QLabel {
+    color: #fff;
+    font-size: 20px;
+}
+
+QMessageBox#akoun QLineEdit {
+    color: #fff;
+    font-size: 28px;
+    background-color: #222;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+QMessageBox#akoun QAbstractButton {
+    background-color: #ffe600;
+    color: #000;
+    font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
