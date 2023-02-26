@@ -1,4 +1,4 @@
-Trieur version beta 5 | Python version 3.11.1 | 🇫🇷 | Optimal avec windows 11 [![Download AKOUN trieur](https://img.shields.io/sourceforge/dt/trieur.svg)](https://sourceforge.net/projects/trieur/files/latest/download)
+Trieur version beta 7 | Python version 3.11.1 | 🇫🇷 | Optimal avec windows 11 [![Download AKOUN trieur](https://img.shields.io/sourceforge/dt/trieur.svg)](https://sourceforge.net/projects/trieur/files/latest/download)
 ```
 ██╗     ██╗███████╗████████╗███████╗███████╗
 ██║     ██║██╔════╝╚══██╔══╝██╔════╝██╔════╝
@@ -26,9 +26,9 @@ Comme dit dans l'énnoncé, ce logiciel permet aux artistes cotés AKOUN tels qu
 
 
 
-Voici un apercus du logiciel (Version beta 5) : 
+Voici un apercus du logiciel (Version beta 7) : 
 
-![Capture d’écran 2023-02-23 183814](https://user-images.githubusercontent.com/92639080/220986434-4e2b4630-68cf-4fd6-8a5a-e6e4c5a128b0.png)
+![Capture d’écran 2023-02-26 031802](https://user-images.githubusercontent.com/92639080/221440990-0b0917a8-fbfd-4d25-a7c5-4cf3d05c0496.png)
 
 
 # Contenu et utilisation:
@@ -227,3 +227,4 @@ python "C:\ **YOUR PATH TO THE SCRIPT** \script.pyw"
          /   \                     /   \             /   \               /   \      /   \          /   \         /   \ /`\_`>  <_/ \  /    \      /   \          /   \               /   \      /   \     \__         \
 ________/_ __ \___________________/_ __ \___________/_ __ \______ __ ___/_ __ \____/_ __ \________/_ __ \_______/_ __ \\__/'---'\__/_/_  __ \____/_ __ \________/_ __ \_____ _______/_ __ \____/_ __ \____ __\___      )
 ```
+
