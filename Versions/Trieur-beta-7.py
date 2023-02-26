@@ -125,11 +125,10 @@ import os,re,sys,logging,configparser
 from PIL import Image
 from unidecode import unidecode
 
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QFileDialog, QLabel, QLineEdit, QScrollArea, QCheckBox, QVBoxLayout, QWidget, QMessageBox, QTextBrowser, QHBoxLayout, qApp, QStyleFactory
-from PyQt5.QtGui import QIcon, QTextCharFormat, QColor, QKeySequence
-from PyQt5.QtCore import Qt, QFile, QTextStream, QUrl, QIODevice
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QFileDialog, QLabel, QLineEdit,  QCheckBox, QVBoxLayout, QWidget, QMessageBox, QTextBrowser, qApp, QStyleFactory
+from PyQt5.QtGui import QIcon, QWheelEvent
+from PyQt5.QtCore import Qt, QFile, QTextStream
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-import logging
 
 #___  ____ _ _ _ ____ ____    ___  _    ____ _  _ ___
 #|__] |  | | | | |___ |__/    |__] |    |__| |\ |  |
@@ -139,6 +138,21 @@ import logging
 #OPENING | https://www.youtube.com/watch?v=_85LaeTCtV8 :3
 
 
+def ressource_path(relative_path):
+    try:
+        base_path=sys._MEIPASS
+
+    except Exception:
+        base_path = os.path.abspath('.')
+
+    return os.path.join(base_path ,relative_path)
+
+# Pour que la création d'un fichier executable s'effectue, il faut inclure tout les chemins relatif dans ressource_path()
+# Exemple : 
+# /icon/lol.png  DEVIENT  ressource_path(/icon/lol.png)
+# idem dés que l'on ouvre un fichier relatif en lecture, ou en écriture.
+
+
 #Création d'une classe contenant nos fonctions et boutons principaux
 class trieur(QMainWindow):
     def __init__(self):
@@ -146,14 +160,18 @@ class trieur(QMainWindow):
      
         # Charger le fichier CSS
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        css_path = os.path.join(script_dir, 'css/style.css')
+        css_path = os.path.join(script_dir, ressource_path('css/style.css'))
 
         # Appliquer la feuille de style globale
         qApp.setStyle(QStyleFactory.create('Fusion'))
         qApp.setStyleSheet(self.load_stylesheet(css_path))
 
         self.copy_first() # Voila un tuto pour la compréhension de la notion "self" : https://www.edureka.co/blog/self-in-python/#what )
-        self.GUI()
+        self.GUI() #On initialise l'interface utilisateur
+
+        #On applique un facteur de zoom pour la fenetre tuto
+        self.zoom_factor = 1.0
+
 
 #On rajoute immédiatement une fonction pour lire notre fichier css        
     def load_stylesheet(self, path):
@@ -161,11 +179,51 @@ class trieur(QMainWindow):
         file.open(QFile.ReadOnly | QFile.Text)
         stream = QTextStream(file)
         return stream.readAll()
-        
-        
-##########################################################################
-# Toujours dans notre fenetre, on va maintenant definir les algorithmes  #
-##########################################################################
+
+
+#Maintenant on va s'occuper de l'ergonomie du tuto
+    #Fonction pour gérer le scroll
+    def wheelEvent(self, event) :  
+        if event.modifiers() == Qt.ControlModifier:#Si la touche ctrl est appuyée
+            if  event.angleDelta().y() > 0 :  #si on essaie de zoomer
+                self.zoom_in()  #on zoom
+    
+            elif event.angleDelta().y() < 0 : #et inversement
+                self.zoom_out() 
+
+        else:#Sinon on reprends l'utilisation normale de la molette (important pour éviter les erreurs d'impossible de rezoomer / dezoomer)
+            super().wheelEvent(event) 
+
+
+#Fonction pour zoomer    
+    def zoom_in(self):
+        #Récupére le facteur de zoom actuel
+        zoom_factor = self.webview.zoomFactor()
+
+        #Augmenter le zoom
+        zoom_factor += 0.1
+
+        #on enregistre le nouveau facteur de zoom
+        self.webview.setZoomFactor(zoom_factor)
+
+
+#Fonction pour dézoomer     
+    def zoom_out(self):  
+        zoom_factor = self.webview.zoomFactor() 
+        zoom_factor -= 0.1 
+        self.webview.setZoomFactor(zoom_factor) 
+    
+
+
+#.-=~=-.                                                                       .-=~=-.#
+#(__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _)#
+#( _ __)                                                                       ( _ __)#
+#(__  _) Toujours dans notre fenetre, on va maintenant definir les algorithmes (__  _)#
+#(__  _)                                                                       (__  _)#
+#(_ ___)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(_ ___)#
+#`-._.-'                                                                       `-._.-'#
+
+
 
 #___  _  _ ____ ____ 
 #|__] |  | | __ [__  
@@ -787,54 +845,62 @@ class trieur(QMainWindow):
 #On passe mainteant à la création de la fenetre utilisateur :
 
     def GUI(self):
-
-        self.setFixedSize(200,500) #La taille Longueur, hauteur
+        
+        #Ici on définit les parametres principaux de notre fenetre
+        self.setMinimumSize(200,500)
         self.setWindowTitle("TRI") 
         self.setWindowIcon(QIcon("ico\trieur.png")) #Notre logo à l'emplacement relatif au dossier d'execution
 
 
-#Contenu principal, du premier jusqu'au dernier bouton en commençant par celui qui créer notre liste
+        #Contenu principal, du premier jusqu'au dernier bouton en commençant par celui qui créer notre liste
         self.list_maker = QPushButton("Créer une liste", self, objectName="list_maker")
         self.list_maker.clicked.connect(self.list_making)
 
 
-#Un boutton pour permettre de renommer les images de tout les dossiers et sous dossiers d'un dossier selectionné
+        #Un boutton pour permettre de renommer les images de tout les dossiers et sous dossiers d'un dossier selectionné
         self.renamer = QPushButton("Renommer images", self, objectName="renamer")
         self.renamer.clicked.connect(self.rename)
 
 
-#Bouton "valider" qui lance notre script une fois tout les parametres établis
-        self.launch = QPushButton(" GO ", self, objectName="launch")
+        #Bouton "valider" qui lance notre script une fois tout les parametres établis
+        self.launch = QPushButton("Créer liste avec cote AKOUN", self, objectName="launch")
         self.launch.clicked.connect(self.validation) #La commande de lancement
 
+        #On créer cette variable pour que le zoom n'affecte que notre page html
+        self.webview = QWebEngineView()
 
-#Affichage d'une page html pour le tuto 
+        #Affichage d'une page html pour le tuto 
         self.tuto = QTextBrowser()
-        self.tuto.setFixedSize(180, 180)
+        self.tuto.setMinimumSize(180, 180)
 
-        with open('html/tuto.html', 'r', encoding='utf-8') as f_htm: #on lit la page et on l'affiche
+        with open(ressource_path('html/tuto.html'), 'r', encoding='utf-8') as f_htm: #on lit la page et on l'affiche
             html = f_htm.read()
             self.tuto.setHtml(html)
-        
-#On finit par placer nos éléments
+     
+        #Filtre d'événement pour transmettre les événements de la souris à la fenêtre principale et éviter les erreurs
+        self.tuto.viewport().installEventFilter(self)
+
+    
+        #On finit par placer nos éléments
         layout = QVBoxLayout()
 
         layout.addSpacing(10)
         layout.addWidget(self.list_maker)
-        layout.addWidget(self.renamer)
-        layout.addSpacing(20)
-        layout.addWidget(self.launch)
         layout.addSpacing(10)
+        layout.addWidget(self.renamer)
+        layout.addSpacing(10)
+        layout.addWidget(self.launch)
+        layout.addSpacing(50)
         layout.addWidget(self.tuto)
         
 
-#On centralise les widgets, les éléments que l'on a créé dans notre grille
+        #On centralise les widgets, les éléments que l'on a créé dans notre grille
         widget = QWidget(self)
         widget.setLayout(layout)
         self.setCentralWidget(widget)
 
 
-#On finit par afficher la fenetre
+        #On finit par afficher la fenetre
         self.show()
 
 
@@ -851,7 +917,7 @@ if __name__ == "__main__":
 
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
-    handler = logging.FileHandler(r'error.log')
+    handler = logging.FileHandler('error.log')
     handler.setLevel(logging.ERROR)
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
