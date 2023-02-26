@@ -26,7 +26,7 @@ pip install pyinstaller
 Une fois l'installation faites, vous n'avez plus qu'à taper dans votre cmd (en remplacant par vos paths) : 
 
 ```
-pyinstaller --onefile --icon=".../tireur.ico" --add-data ".../Beta 5/ico;ico" --noconsole test.py
+pyinstaller --onefile --icon="...\tireur.ico" --add-data "...\Beta 7\*;ico" --add-data "...\html\*;html" --add-data "...\css\*;css"--noconsole test.py
 ```
 
 Explications :
