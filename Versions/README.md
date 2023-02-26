@@ -35,7 +35,8 @@ Explications :
 
 --icon=icone.ico : spécifie l'icône à utiliser pour l'exécutable (remplacez icone.ico par le chemin de votre fichier d'icône).
 
---add-data "chemin/vers/fichier;nom_du_dossier" : ajoute des fichiers externes nécessaires au programme. Le chemin vers le fichier et le nom du dossier dans lequel le fichier sera extrait doivent être séparés par un point-virgule (;). Vous pouvez ajouter plusieurs fichiers en les séparant par des points-virgules.
+--add-data "chemin\vers\fichier\*;nom_du_dossier" : ajoute des fichiers externes nécessaires au programme. Le chemin vers le fichier et le nom du dossier dans lequel le fichier sera extrait doivent être séparés par un point-virgule (;). Vous pouvez ajouter plusieurs fichiers en les séparant par des points-virgules, ou tout les fichiers du dossier concerné en ajoutant \* à la fin.
+
 script.py : spécifie le nom de votre script Python.
 
 --noconsole : masque la console lors de l'exécution de l'exécutable.
