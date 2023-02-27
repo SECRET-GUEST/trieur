@@ -9,6 +9,12 @@ Version : beta 5 | Python version 3.11.1 |Optimisé pour windows 11
    ╚═╝   ╚═╝  ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝
 ```
 
+
+# EN VUE D'UNE REFONTE COMPLETE DU LOGICIEL, CE DERNIER N'EST PLUS DISPONNIBLE POUR LE MOMENT
+
+Je publierai une version complete avant Mars si tout se passe bien
+
+
 # Instructions :
 
 Ce "logiciel" permet le tri de votre liste, vous pouvez également télécharger une version portable/executable par simple clic ici : https://sourceforge.net/projects/trieur/files/
