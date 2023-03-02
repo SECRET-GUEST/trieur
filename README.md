@@ -22,6 +22,7 @@ Comme dit dans l'énnoncé, ce logiciel permet aux artistes cotés AKOUN tels qu
 
 [![Download AKOUN trieur](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/trieur/files/latest/download)
 
+
 ## Changements à venir :
 
 - [ ] Correction du nom de chaque images présentes dans tout le dossier, incluant celles présentes dans les sous dossiers.
@@ -31,7 +32,7 @@ Comme dit dans l'énnoncé, ce logiciel permet aux artistes cotés AKOUN tels qu
 
 Voici un apercus du logiciel (Version beta 7) : 
 
-![Capture d’écran 2023-02-26 031802](https://user-images.githubusercontent.com/92639080/221440990-0b0917a8-fbfd-4d25-a7c5-4cf3d05c0496.png)
+![Capture d'écran 2023-03-02 105345](https://user-images.githubusercontent.com/92639080/222394444-8ae8bd33-033c-4cda-ac67-db52cfc8d8f8.png)
 
 
 # Contenu et utilisation:
