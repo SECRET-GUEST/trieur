@@ -1,8 +1,7 @@
-# EN VUE D'UNE REFONTE COMPLETE DU LOGICIEL, CE DERNIER N'EST PLUS DISPONNIBLE POUR LE MOMENT
+# EN COURS DE DEVELOPPEMENT, pertes de temps à cause de problèmes personnels, je met les versions executables dés que j'aurai fini de travaillé l'HTML.
 
-Je publierai une version complete avant Mars si tout se passe bien
 
-Trieur version beta 8 | Python version 3.11.1 | 🇫🇷 | Optimal avec windows 11 [![Download AKOUN trieur](https://img.shields.io/sourceforge/dt/trieur.svg)](https://sourceforge.net/projects/trieur/files/latest/download)
+Trieur version 1.0.0 | Python version 3.11.1 | 🇫🇷 | Optimal avec windows 11 [![Download AKOUN trieur](https://img.shields.io/sourceforge/dt/trieur.svg)](https://sourceforge.net/projects/trieur/files/latest/download)
 ```
 ██╗     ██╗███████╗████████╗███████╗███████╗
 ██║     ██║██╔════╝╚══██╔══╝██╔════╝██╔════╝
