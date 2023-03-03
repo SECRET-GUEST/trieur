@@ -189,7 +189,7 @@ class trieur(QMainWindow):
             if  event.angleDelta().y() > 0 :  #si on essaie de zoomer
                 self.zoom_in()  #on zoom
     
-            elif event.angleDelta().y() < 0 : #et inversement
+            elif event.angleDelta().y() < 0 : #et inversement pour dezoomer
                 self.zoom_out() 
                 
         else:#Sinon on reprends l'utilisation normale de la molette (important pour éviter les erreurs d'impossible de rezoomer / dezoomer)
@@ -214,7 +214,6 @@ class trieur(QMainWindow):
         zoom_factor -= 0.1 
         self.webview.setZoomFactor(zoom_factor) 
     
-                
 
 #.-=~=-.                                                                       .-=~=-.#
 #(__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _)#
@@ -401,6 +400,8 @@ class trieur(QMainWindow):
                 #Remplacement des caractères spéciaux par des espaces, des lettres accentuées par leur correspondance ("è" devient "e") avec unidecode
                 new_file = re.sub(r'[^a-zA-Z0-9]+', ' ', unidecode(filename)) 
                 new_file = re.sub("^\d+\s", "", new_file) # Supprime le premier nombre (si les images sont numérotées dans le nom pour éviter les erreurs futures)
+
+                #Ce qui suit n'est plus particulierement utile puisque j'ai modifier l'expression de recherche des tailles :
                 new_file = re.sub(r'([0-9])X', r'\1x', new_file) # Transforme les X majuscules après un nombre (entre 0 et 9), en x minuscule
                 new_file = re.sub(r'(\d)\s*x\s*(\d)', r'\1x\2', new_file, flags=re.IGNORECASE) #Supprime les espaces autour des x
                 new_file = re.sub(r'(\d)\s*cm', r'\1cm', new_file, flags=re.IGNORECASE) #Supprime les espaces à gauche des cm
@@ -480,9 +481,25 @@ class trieur(QMainWindow):
                     image_info["type"] = os.path.basename(subdir) 
                 
                     with Image.open(os.path.join(subdir, file)) as picture:
-                        sizes = re.findall(r'(\d+)x(\d+)(?:x(\d+))?(?:cm)?', file.lower()) #On regarde si il y a des expressions de taille de chaque image
-            
-                
+                        sizes = re.findall(r'(?i)\b\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?\s*(?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){2}(?!\s*x)[^x]*(?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){0,2}\s*(?:x\s*)?(cm|mm|m)\b', file.lower()) #On regarde si il y a des expressions de taille de chaque image
+
+                    # Je prefere le noter parceque c'est un bordel :
+                    # (?i) : regex insensible à la casse
+                    # \b : limite de mot
+                    # \d+ : suit de nombres
+                    # (?:[.,]\d{1,2})? : chifres avec décimales
+                    # \s* : espaces vides, 0 ..
+                    # (?:cm|mm|m)? : les cm, mm et m
+                    # \s* 
+                    # (?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){2} : expression qui se répète 2x, composée d'un "x",0 ou plusieurs espaces, des chiffres, des chiffres a décimales, des 0, des espaces et les tailles m mm cm, ...
+                    # (?!\s*x) : ne doit pas être suivi par "x", évite de recup les parties de dimensions supplémentairs
+                    # [^x]* : 0 ou plusieurs caractères autres que "x"
+                    # (?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){0,2} : une expression qui peut se répèter 0 à 2x
+                    # \s* 
+                    # (?:x\s*)?
+                    # (cm|mm|m)\b : cm, mm et m + limite de mot
+
+
                         if sizes: #Si il y en a
                             try:
                                 image_info["longueur"] = int(sizes[0][0]) #on les sauvegarde dans des tableaux, le premier 0 définissant la ligne, le 2eme la colone
@@ -546,7 +563,7 @@ class trieur(QMainWindow):
                     #on récupere l'ancien nom et on le modifie en le séparant d'abord de l'extension puis en supprimant les anciennes valeurs de tailles pour ne pas les avoir en double par la suite
                     old_path = os.path.join(subdir, file)
                     old_name, extension = os.path.splitext(file) 
-                    old_name = re.sub(r'(\d+)x(\d+)(?:x(\d+))?(?:cm)?', '', old_name, flags=re.IGNORECASE).strip()
+                    old_name = re.sub(r'(?i)\b\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?\s*(?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){2}(?!\s*x)[^x]*(?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){0,2}\s*(?:x\s*)?(cm|mm|m)\b', '', old_name, flags=re.IGNORECASE).strip()
                 
                     #On renomme avec le nouveau prix si l'utilisateur a utilisé une cote, sinon on renomme sans le prix
                     if cote_akoun is not None and cote_akoun > 0: 
@@ -588,7 +605,7 @@ class trieur(QMainWindow):
                     with open(file_path, "w", encoding="utf8") as f:
                         for line in lines:
 
-                            new_line = re.sub(r'(\d+)x(\d+)(?:x(\d+))?(?:cm)?', '', line.lower())
+                            new_line = re.sub(r'(?i)\b\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?\s*(?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){2}(?!\s*x)[^x]*(?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){0,2}\s*(?:x\s*)?(cm|mm|m)\b', '', line.lower())
                             new_line = re.sub(r'(\s{2,})', ' ', new_line).strip() + '\n' 
                             
                             if new_line.strip() or line.strip(): #vérifie si les lignes sont vides ou non
@@ -978,23 +995,23 @@ class trieur(QMainWindow):
                 
 
         #Ci dessousles bouton accompagnés de leurs identifiant pour la page CSS
-        self.regex_remover = QPushButton("Supprimer des mots des noms", self, objectName="remove_regex")
+        self.regex_remover = QPushButton("Supprimer des mots des noms", self, objectName="by")
         self.regex_remover.clicked.connect(self.remove_regex)
                 
 
-        self.price_maker = QPushButton("Renommer avec prix cote AKOUN", self, objectName="price_maker")
+        self.price_maker = QPushButton("Renommer avec prix cote AKOUN", self, objectName="yb")
         self.price_maker.clicked.connect(self.price_making)
                 
 
-        self.list_files = QPushButton("Créer des listes dans les dossiers", self, objectName="list_files")
-        self.list_files.clicked.connect(self.listing)
-                
-
-        self.fili = QPushButton("Ajout de texte dans les noms", self, objectName="filigrane")
+        self.fili = QPushButton("Ajout de texte dans les noms", self, objectName="by")
         self.fili.clicked.connect(self.filigrane)
-        
 
-        self.renamer = QPushButton("Renommer images selon une suite 1 2 3 ...", self, objectName="renamer")
+
+        self.list_files = QPushButton("Créer des listes dans les dossiers", self, objectName="yb")
+        self.list_files.clicked.connect(self.listing)
+                        
+
+        self.renamer = QPushButton("Renommer les images selon une suite 1.jpg 2.. 3...", self, objectName="by")
         self.renamer.clicked.connect(self.rename)
                 
 
@@ -1005,7 +1022,10 @@ class trieur(QMainWindow):
         #Affichage d'une page html pour le tuto 
         self.tuto = QTextBrowser()
         self.tuto.setMinimumSize(180, 180)
-                
+
+        #Maintenant on  définit notre tutoriel en fonction de notre barre de défilement via du HTML
+        self.tuto.setOpenExternalLinks(True) #On active le clic sur les liens.
+
         with open(ressource_path("html/tuto.html"), "r", encoding='utf-8') as f_htm: #on lit la page et on l'affiche
             html = f_htm.read()
             self.tuto.setHtml(html)
@@ -1022,9 +1042,9 @@ class trieur(QMainWindow):
         layout.addSpacing(10)
         layout.addWidget(self.price_maker)
         layout.addSpacing(10)
-        layout.addWidget(self.list_files)
-        layout.addSpacing(10)
         layout.addWidget(self.fili)
+        layout.addSpacing(10)
+        layout.addWidget(self.list_files)
         layout.addSpacing(10)
         layout.addWidget(self.renamer)
         layout.addSpacing(50)
