@@ -23,15 +23,17 @@ Comme dit dans l'énnoncé, ce logiciel permet aux artistes cotés AKOUN tels qu
 
 ## Changements à venir :
 
-- [ ] Correction du nom de chaque images présentes dans tout le dossier, incluant celles présentes dans les sous dossiers.
-- [ ] Interface visuelle soignée qui marquera la fin de la beta.
+- [ ] Correction de bugs mineurs comme certains éléments de l'interface visuelle.
+- [ ] Correction de bug majeurs dut à la compilation et l'encodage.
+- [ ] Amélioration de la version executable.
+- [ ] Rajout de fonctions pour trier des listes ".txt" et ".csv"
+- [ ] Ajout d'un menu pour changer les thèmes autres trucs random que font les menus d'application github, comme plusieurs pages d'aide qui n'existent pas.
 
 
+Voici un apercus du logiciel (Version 0.9.9.9999999) : 
 
-Voici un apercus du logiciel (Version beta 7) : 
 
-![Capture d'écran 2023-03-02 105345](https://user-images.githubusercontent.com/92639080/222394444-8ae8bd33-033c-4cda-ac67-db52cfc8d8f8.png)
-
+![global](https://user-images.githubusercontent.com/92639080/222796734-14c65748-d69a-421f-8ce5-9613ffb8b987.png)
 
 # Contenu et utilisation:
 
