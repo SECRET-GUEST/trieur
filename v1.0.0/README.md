@@ -1,4 +1,4 @@
-Version : beta 1.0.0 | Python version 3.11.1 | FR | For every OS but run better on Windows
+Version : ~1.0.0 | Python version 3.11.1 | FR | For every OS but run better on Windows
 
 ```
 ████████╗██████╗ ██╗███████╗██╗   ██╗██████╗    ███████╗██╗  ██╗███████╗
