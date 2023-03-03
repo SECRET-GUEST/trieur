@@ -50,79 +50,78 @@ Par exemple, imaginons le cas ou vous avez à supprimer des prix du nom de vos f
 ```
 \d+(?:[,.]\d{1,2})?\s*(?i)((?<=\s)|(?<=\d)(?=\s*x)|$)(euros?|eur|euro|e)(?=\s|$)
 ```
-* \d+ : correspond à une suite de chiffres d'une longueur quelconque (au moins un chiffre).
+1. \d+ : correspond à une suite de chiffres d'une longueur quelconque (au moins un chiffre).
 (?:[,.]\d{1,2})? : correspond à un point ou une virgule suivi de deux chiffres décimaux, éventuellement présents (l'expression est facultative grâce au ?).
 
-* \s* : correspond à zéro ou plusieurs caractères d'espacement (espaces, tabulations, etc.).
+2. \s* : correspond à zéro ou plusieurs caractères d'espacement (espaces, tabulations, etc.).
 
-* (?i) : active le mode insensible à la casse, ce qui permet de matcher indifféremment les majuscules et les minuscules.
+3. (?i) : active le mode insensible à la casse, ce qui permet de matcher indifféremment les majuscules et les minuscules.
 
-* ((?<=\s)|(?<=\d)(?=\s*x)|$) : utilise des assertions pour limiter la correspondance à certains cas précis :
+4. ((?<=\s)|(?<=\d)(?=\s*x)|$) : utilise des assertions pour limiter la correspondance à certains cas précis :
 
- - (?<=\s) : correspond à une position qui suit immédiatement un caractère d'espacement.
+    - (?<=\s) : correspond à une position qui suit immédiatement un caractère d'espacement.
 
- - (?<=\d)(?=\s*x) : correspond à une position qui suit immédiatement un chiffre, et qui est suivie immédiatement par un caractère "x" précédé ou non d'espaces.
+    - (?<=\d)(?=\s*x) : correspond à une position qui suit immédiatement un chiffre, et qui est suivie immédiatement par un caractère "x" précédé ou non d'espaces.
 
- -  $ : correspond à la fin de la chaîne.
+    -  $ : correspond à la fin de la chaîne.
 
-* (euros?|eur|euro|e) : correspond à l'une des chaînes de caractères "euro", "euros", "eur" ou "e".
+5. (euros?|eur|euro|e) : correspond à l'une des chaînes de caractères "euro", "euros", "eur" ou "e".
 
-* (?=\s|$) : correspond à une position qui précède immédiatement un caractère d'espacement ou la fin de la chaîne.
+6. (?=\s|$) : correspond à une position qui précède immédiatement un caractère d'espacement ou la fin de la chaîne.
 
-## 2. Renommer les images
 
-Ce bouton permet de renommer toute les images contenues dans un dossier choisi, **AINSI QUE** toute celles présente dans les sous-dossiers inclus dans ce dernier. Le renommage se fera selon une suite 1 2 3 4 5 ...
+## 2. Renommer les images avec la cote AKOUN
 
-ⁿᵒᵗᵉ *Il est recommandé d'utiliser la fonction de renommage sur une copie de votre dossier afin d'éviter les erreurs, par exemple si vous l'utilisez sur un ordinateur windows, sur des fichiers déja numérotés, les fichiers seront renommés dans cet ordre : 1 10 11 110 111111 2 3 4 .... ce qui peut entrainer pas mal d'erreurs (merci microsoft).*
+Ce bouton vous permet globalement de renommer toute les images présentes dans les dossiers et sous-dossiers du dossier sélectionné, voici ses fonctions :
 
-ⁿᵒᵗᵉ *Un correcteur est à venir, dans l'idéal j'aimerai qu'il supprime toutes données superflue des listes et qu'il corrige la grammaire, il est déja en cours de fabrication, mais pour le moment il est seulement capable de retirer les valeurs "type" 30x40x32cm des listes ainsi que d'autres données plus personnelles, il n'est pas encore inclut dans le logiciel.*
+1. Pour commencer il va récupérer les données de taille présent dans les noms, si il n'y en a pas, il calculera automatiquement la taille de l'image en fonction des métadonnées de pixels, et de résolution des images. 
 
-## 3. Chercher la liste
+     - Si les pixels par pouces (la résolution) n'est pas renseignée, il appliquera un ratio pour une image avec une résolution de 300dpi par défaut. 
 
-Cette fonction permet de simplement chercher sur quelle liste vous allez travailler
+     - Si pour une raison quelconque il n'y a pas de tailles définies dans les métadonnées de l'image, apres un message d'erreur, il appliquera un ratio de base : 1cm = environ 37 pixels, il n'est pas conseillé de garder cette taille  car elle ne sera pas forcément correcte.
 
-## 4. Cote Akoun
+     - Si les images n'ont pas de profondeur (c'est a dire de 1, ou de 0), il ne prendra pas en compte la profondeur dans le calcul du prix via la cote akoun.
 
-Ici vous devez, comme indiquer, entrer votre cote AKOUN.
+ⁿᵒᵗᵉ *Pour les images possedant une taille au format "30x30cm" ou "30x30x30cm", afin que la detection de taille s'effectue, mieux vaut formater vos prix pour qu'ils ressemblent a ce que j'ai écris, la regle  de recherche est très tolérante, mais vous risquez quand meme de vous retrouver avec des erreurs si vous faites vraiment n'importe quoi.*
 
-## 5. GO!
+2. Une fois la taille trouvée il va essayer de la formater correctement, puis il ajoutera un prix défini par la cote AKOUN qu'il vous sera demandé d'entrer.
 
-L'algorithme va trier toutes les données de votre liste si ces dernières sont au bon format. Il créera si besoin de nouveaux dossiers au nom du type de l'oeuvre, ainsi que des listes à l'interieur contenant la liste propre avec le prix des oeuvres.
+Le prix est défini selon ce calcul : 
 
-ⁿᵒᵗᵉ *A venir : apres avoir effectué son tri, le programme assignera à vos images numérotées, le nom correspondant au premier numéro de la liste*
+```
+Prix = ((Longueur x hauteur x profondeur ) x Cote Akoun)/3250
+```
 
-Si vous désirez écrire vous meme ou réécrire les données présentes, voici comment vous devrez procéder :
+ⁿᵒᵗᵉ *Si vous n'entrez pas de cote AKOUN, le nouveau nom ne contiendra aucun prix*
 
-numero | type d'oeuvre | longueur x hauteur x profondeur | nom de l'oeuvre
+3. Pour finir le logiciel attribuera un nouveau nom contenant toute les informations, avec chaque catégories séparées par des ",". J'ai jugé cette délimitation utile pour plusieurs raisons : 
+ 
+   - Le nom est plus facile à lire.
+   - Cela aide pour le référencement dans les grandes bases de données d'images présente dans les moteur de recherche.
+   - Mais plus important encore, cela permet de créer facilement des listes ou des tableaux avec des catégories pour vos images.
 
-+ Par exemple :
 
-- [ ] 1 3D 300 200 0 le petit charles
+## 3. Ajout de texte dans les noms
 
-- [ ] 2 numerique 200 50 1 jean-luc
+Cette fonction vous permet d'ajouter un filigrane, pour certaines raisons les symboles autre que les espaces ne sont pas autorisés.
+par exemple vous pouvez donné une indication pour votre site ; art nathacha com.
 
-- [ ] 3 pastel 600 400 10 internet vapor wave 404
 
-...
+ⁿᵒᵗᵉ *Ce nouveu texte viendra accompagné d'une "," le précédent, par conséquent lors de la prochaine fonction il sera pris en compte comme étant une nouvelle catégorie.
 
-Voici un exemple d'utilisation du logiciel pour un dossier contenant des oeuvres numérique (Version : beta 3);
+## 4. Créer une liste
 
-![beta2](https://user-images.githubusercontent.com/92639080/216796498-58d8baf0-892f-4680-a1ce-fe1a1936abd2.jpg)
+Cette fonction va lister toute vos images présente dans tout les dossiers et sous dossier du répertoire que vous avez ouvert, cette liste sera au format .csvn qui est un format excel lu par google drive par exemple, mais vous pouvez également l'ouvrir sous forme de texte en changeant l'extension de fichier en .txt, ou autre.
 
-ⁿᵒᵗᵉ *Le logiciel est capable de taiter une liste contenant plusieurs types de dossiers, il triera et rangera les données dans des dossiers/des listes existantes ou non, sans effacer celles qui s'y trouvent déja.*
+Vous aurez une option pour créer une liste regroupant tout les dossiers et sous-dossiers, mais également la possibilité de créer une liste dans chaque sous-dossiers.
 
-Il est important de noter que la profondeur est particulière ; 
+ⁿᵒᵗᵉ *Lorsque vous créer une liste, si une liste du meme nom est présente dans le dossier, ses informations seront totalement remplacées par les nouvelles, il est possible de faire en sorte de les ajouter plutot que de les supprimer en remplacant le "w" dans le code python par "a", a la ligne correspondant à l'enregistrement des fichiers, je peux également faire parraitre ca sous forme de bouton au besoin, n'hésitez pas à demander cette fonction.*
 
-- [ ] Donner 1 en profondeur pour vos oeuvres produites sur un support tel que le papier, cela annulera la prise en compte de la profondeur dans le calcul de la cote, mais la variable pourra tout de meme etre réutilisée plus tards si besoin.
+## 5. Renommer selon une suite
 
-- [ ] Donner 0 en profondeur aura le meme resultat que si vous donneriez 1, j'ai conservé le 0 pour mieux classer les oeuvres de type numériques.
+Ce bouton permet de renommer toute les images contenues dans un dossier choisi, **AINSI QUE** toute celles présente dans les sous-dossiers inclus dans ce dernier. Le renommage se fera selon une suite 1.jpg 2.png 3........
 
-- [ ] Donner n'importe quelle autre valeur la rendra éffective dans le calcul, arrondissez à l'unité pour éviter les erreurs.
-
-**ʳᵉᵐᵃʳᑫᵘᵉ Le *type* de votre liste NE DEVRA CONTENIR QU'UN SEUL MOT !! Et il ne devra pas contenir de caractère spéciaux tels que "é" ou "+", cela doit rester le plus neutre possible**, c'est tout simplement plus rapide comme ca lors de la prise de notes et de l'écriture du programme.
-
-Les noms de dossiers et des listes seront attribués en fonction du nom du **type** .
-
+ⁿᵒᵗᵉ *Initialement cette fonction étaie prévue pour pouvoir remplacer les noms plus facilement via une liste, ou plus exactement un tableau .csv, le tout exécuté par l'appuie d'un 6eme bouton, mais je n'ai pas réussi avec python à convertir l'encodage des listes pour chaque type d'os, par conséquent cette fonction est en stanby pour le moment, pareil si vous en avez vraiment besoin, je reste apte à l'implémenter*
 
 
 ```
