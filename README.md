@@ -121,6 +121,11 @@ Ce bouton permet de renommer toute les images contenues dans un dossier choisi, 
 ⁿᵒᵗᵉ *Initialement cette fonction étaie prévue pour pouvoir remplacer les noms plus facilement via une liste, ou plus exactement un tableau .csv, le tout exécuté par l'appuie d'un 6eme bouton, mais je n'ai pas réussi avec python à convertir l'encodage des listes pour chaque type d'os, par conséquent cette fonction est en stanby pour le moment, pareil si vous en avez vraiment besoin, je reste apte à l'implémenter*
 
 
+
+
+
+Ci dessous vous avez un tutoriel en anglais sur comment éxecuter le logiciel par vous meme : 
+
 ```
 ___ _  _ ___ ____ ____ _ ____ _    
  |  |  |  |  |  | |__/ | |__| |    
