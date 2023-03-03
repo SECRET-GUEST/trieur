@@ -120,15 +120,7 @@
 #| | \| ___]  |  |  | |___ |___ |  |  |  | |__| | \|
                 
 
-import os,re,sys,csv,logging,configparser
-from PIL import Image
-from unidecode import unidecode
-                
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QFileDialog, QLabel, QLineEdit,  QCheckBox, QVBoxLayout, QWidget, QMessageBox, QTextBrowser, QStyleFactory, QDialog, qApp
-from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import Qt, QFile, QTextStream
-from PyQt5.QtWebEngineWidgets import QWebEngineView
-                
+from common import *           
 #___  ____ _ _ _ ____ ____    ___  _    ____ _  _ ___
 #|__] |  | | | | |___ |__/    |__] |    |__| |\ |  |
 #|    |__| |_|_| |___ |  \    |    |___ |  | | \|  |
@@ -159,20 +151,32 @@ class trieur(QMainWindow):
                 
         self.folder = None
                 
-        # Charger le fichier CSS
+        #Charger le fichier CSS
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        css_path = os.path.join(script_dir, ressource_path('css/style.css'))
-                
-        # Appliquer la feuille de style globale
+        self.css_path = os.path.join(script_dir, ressource_path('css/dark.css'))
+        
+        #Lire le fichier de configuration pour récupérer le mode précédent
+        self.config = configparser.ConfigParser()
+        self.config.read('config.ini')
+        self.mode = self.config.get('settings', 'mode', fallback='light')
+
+        #Appliquer la feuille de style globale
         qApp.setStyle(QStyleFactory.create('Fusion'))
-        qApp.setStyleSheet(self.load_stylesheet(css_path))
-                
+        qApp.setStyleSheet(self.load_stylesheet(self.css_path))
+
         self.copy_first() # Voila un tuto pour la compréhension de la notion "self" : https://www.edureka.co/blog/self-in-python/#what )
         self.GUI() #On initialise l'interface utilisateur
                 
         #On applique un facteur de zoom pour la fenetre tuto
         self.zoom_factor = 1.0
-                
+
+        #MIci on check despi si le dark mode est activé ou non pour pouvoir l'enregistrer dans la configuration
+        if self.mode == 'dark':
+            self.setStyleSheet(self.load_stylesheet(ressource_path("css/dark.css")))
+            self.dark_button.setText("L1ght Mode")
+        else:
+            self.dark_button.setText("D4rk Mode")
+            self.setStyleSheet(self.load_stylesheet(ressource_path("css/light.css")))            
 
 #On rajoute immédiatement une fonction pour lire notre fichier css        
     def load_stylesheet(self, path):
@@ -180,40 +184,66 @@ class trieur(QMainWindow):
         file.open(QFile.ReadOnly | QFile.Text)
         stream = QTextStream(file)
         return stream.readAll()
-                
 
-#Maintenant on va s'occuper de l'ergonomie du tuto
-    #Fonction pour gérer le scroll
+
+    #Une fonction pour changer le mode de la fenêtre
+    def dark_mode(self):
+        #Activation/désactivation du mode sombre
+        if self.dark_button.isChecked():
+            self.setStyleSheet(self.load_stylesheet(ressource_path("css/dark.css")))
+            self.mode = 'dark'
+            self.dark_button.setText("Light Mode")
+        else:
+            self.setStyleSheet(self.load_stylesheet(ressource_path("css/light.css")))
+            self.mode = 'light'
+            self.dark_button.setText("Dark Mode")
+
+        #Enregistrement du mode dans le fichier de configuration
+        if 'settings' not in self.config: #Si le fichier de configuration n'existe pas
+            self.config['settings'] = {} #On le crée
+        self.config['settings']['mode'] = self.mode #On enregistre le mode dans le fichier de configuration
+        with open('config.ini', 'w') as configfile: 
+            self.config.write(configfile)
+
+
+
+    
+
+
+#Maintenant on va s'occuper de l'ergonomie du tuto :
+#Fonction pour gérer le scroll
     def wheelEvent(self, event) :  
         if event.modifiers() == Qt.ControlModifier:#Si la touche ctrl est appuyée
-            if  event.angleDelta().y() > 0 :  #si on essaie de zoomer
-                self.zoom_in()  #on zoom
-    
-            elif event.angleDelta().y() < 0 : #et inversement pour dezoomer
+            if  event.angleDelta().y()> 0 :  #si on essaie de zoomer
+                self.zoom_in() #on zoom
+                event.accept()
+
+            elif event.angleDelta().y()< 0 :#et inversement pour dezoomer
                 self.zoom_out() 
-                
+                event.accept()
+
         else:#Sinon on reprends l'utilisation normale de la molette (important pour éviter les erreurs d'impossible de rezoomer / dezoomer)
             super().wheelEvent(event) 
-                
+
 
 #Fonction pour zoomer    
     def zoom_in(self):
         #Récupére le facteur de zoom actuel
         zoom_factor = self.webview.zoomFactor()
-                
+
         #Augmenter le zoom
         zoom_factor += 0.1
-                
+
         #on enregistre le nouveau facteur de zoom
         self.webview.setZoomFactor(zoom_factor)
-                
+
 
 #Fonction pour dézoomer     
     def zoom_out(self):  
         zoom_factor = self.webview.zoomFactor() 
         zoom_factor -= 0.1 
-        self.webview.setZoomFactor(zoom_factor) 
-    
+        self.webview.setZoomFactor(zoom_factor)
+
 
 #.-=~=-.                                                                       .-=~=-.#
 #(__  _)-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-=-._.-(__  _)#
@@ -291,36 +321,32 @@ class trieur(QMainWindow):
         return True #Permet de continuer puisque le message d'erreur n'est qu'a titre informatif
                 
 
+
 #Ceci est completement facultatif, mais ici on créer un pop up pour notifier l'utilisateur de ne pas oublier de faire une copie des dossiers avant de les manipuler :
     def copy_first(self):
-        #On créer un fichier config.ini ou sera stockée la réponse
-        config= configparser.ConfigParser()
-        config.read('config.ini' ) 
-                
-        if 'General' not in config.sections():
-            config.add_section('General')
-                
-        disclaimer =config.getboolean('General', 'disclaimer', fallback=True)
-                
-        #Affichage du disclaimer dans un popup
+        #Affichage du disclaimer dans un popup       
+        if 'General' not in self.config.sections():
+            self.config.add_section('General')
+
+        disclaimer =self.config.getboolean('General', 'disclaimer', fallback=True)
+
         if disclaimer:
-                
+
             msgBox=QMessageBox()
             msgBox.setText("PENSEZ A CREER UNE COPIE DE VOS FICHIERS AVANT DE LES MANIPULER")
             checkbox= QCheckBox("Ne plus afficher au démarrage")
             msgBox.setCheckBox(checkbox)
-                
+
             reply = msgBox.exec_()
-                
+
             # Enregistrement des préférences de l'utilisateur dans le fichier de configuration
-            config.set('General','disclaimer', str(not checkbox.isChecked()))
-                
+            if 'General' not in self.config.sections():
+                self.config.add_section('General')
+            self.config.set('General','disclaimer', str(not checkbox.isChecked()))
+
             with open('config.ini', "w") as configfile:
-                config.write(configfile)
+                self.config.write(configfile)
                 
-
-                
-
 #____ ____ _    ____ ____ ___ _ ____ _  _ 
 #[__  |___ |    |___ |     |  | |  | |\ | 
 #___] |___ |___ |___ |___  |  | |__| | \| 
@@ -362,6 +388,7 @@ class trieur(QMainWindow):
         if not os.path.isdir(folder):
             self.ERRORS("Ce n'est pas un dossier.")
             return False
+        
         if not os.listdir(folder):
             self.ERRORS("Le dossier est vide.")
             return False
@@ -989,35 +1016,40 @@ class trieur(QMainWindow):
     def GUI(self):
         
         #Ici on définit les parametres principaux de notre fenetre
-        self.setMinimumSize(200,500)
+        self.setMinimumSize(250,500)
         self.setWindowTitle("TRIEUR") 
         self.setWindowIcon(QIcon(ressource_path(r"ico\trieur.png"))) #Notre logo à l'emplacement relatif au dossier d'execution
                 
 
         #Ci dessousles bouton accompagnés de leurs identifiant pour la page CSS
-        self.regex_remover = QPushButton("Supprimer des mots des noms", self, objectName="by")
+        self.regex_remover = QPushButton("Supprimer des mots", self, objectName="regex")
         self.regex_remover.clicked.connect(self.remove_regex)
                 
 
-        self.price_maker = QPushButton("Renommer avec prix cote AKOUN", self, objectName="yb")
+        self.price_maker = QPushButton("Renommer avec cote AKOUN", self, objectName="price")
         self.price_maker.clicked.connect(self.price_making)
                 
 
-        self.fili = QPushButton("Ajout de texte dans les noms", self, objectName="by")
+        self.fili = QPushButton("Ajouter des mots", self, objectName="fili")
         self.fili.clicked.connect(self.filigrane)
 
 
-        self.list_files = QPushButton("Créer des listes dans les dossiers", self, objectName="yb")
+        self.list_files = QPushButton("Lister les images", self, objectName="lists")
         self.list_files.clicked.connect(self.listing)
                         
 
-        self.renamer = QPushButton("Renommer les images selon une suite 1.jpg 2.. 3...", self, objectName="by")
+        self.renamer = QPushButton("Renommer 1.2..3...", self, objectName="rename")
         self.renamer.clicked.connect(self.rename)
-                
+
+        #Le bouton pour le darkmode
+        self.dark_button = QPushButton("Light Mode", self, objectName="roronoe")
+        self.dark_button.setCheckable(True)
+        self.dark_button.setChecked(self.mode == 'dark') #On regarde quel mode on est 
+        self.dark_button.clicked.connect(self.dark_mode)
+
 
         #On créer cette variable pour que le zoom n'affecte que notre page html
         self.webview = QWebEngineView()
-                
 
         #Affichage d'une page html pour le tuto 
         self.tuto = QTextBrowser()
@@ -1026,7 +1058,7 @@ class trieur(QMainWindow):
         #Maintenant on  définit notre tutoriel en fonction de notre barre de défilement via du HTML
         self.tuto.setOpenExternalLinks(True) #On active le clic sur les liens.
 
-        with open(ressource_path("html/tuto.html"), "r", encoding='utf-8') as f_htm: #on lit la page et on l'affiche
+        with open(ressource_path("tuto.html"), "r", encoding='utf-8') as f_htm: #on lit la page et on l'affiche
             html = f_htm.read()
             self.tuto.setHtml(html)
      
@@ -1036,7 +1068,9 @@ class trieur(QMainWindow):
     
         #On fini par placer nos élément verticalement dans une grille (QHBoxLayout, a importer pour la gestion horizontale)
         layout = QVBoxLayout()
-                
+        
+        layout.addSpacing(10)
+        layout.addWidget(self.dark_button) 
         layout.addSpacing(10)
         layout.addWidget(self.regex_remover)
         layout.addSpacing(10)
@@ -1062,8 +1096,6 @@ class trieur(QMainWindow):
                 
 
                 
-
-                
 #____ ____ ____ _  _ ____ ___    _    ____ _  _ _  _ ____ _  _
 #|__/ |  | |    |_/  |___  |     |    |__| |  | |\ | |    |__|
 #|  \ |__| |___ | \_ |___  |     |___ |  | |__| | \| |___ |  |
@@ -1079,8 +1111,8 @@ if __name__ == "__main__":
     handler.setLevel(logging.ERROR) #Créer un niveau de débogage du gestionnaire
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s') #Créer un gestionnaire de formatage pour les messages
     handler.setFormatter(formatter) #définit ou effectuer le formatage
-    logger.addHandler(handler) #ajoute le gestionnaire au logger
-                
+    logger.addHandler(handler) #ajoute le gestionnaire au logger             
+
     app = QApplication(sys.argv)
     window = trieur()
     sys.exit(app.exec_())
