@@ -124,7 +124,7 @@ Ce bouton permet de renommer toute les images contenues dans un dossier choisi, 
 
 
 
-Ci dessous vous avez un tutoriel en anglais sur comment éxecuter le logiciel par vous meme : 
+Ci dessous vous avez un tutoriel en anglais sur comment lancer ou créer un executable par vous meme : 
 
 ```
 ___ _  _ ___ ____ ____ _ ____ _    
