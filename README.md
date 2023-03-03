@@ -37,13 +37,37 @@ Voici un apercus du logiciel (Version beta 7) :
 
 # Contenu et utilisation:
 
+IMPORTANT : Pour commencer, veuillez noter que ce logiciel va modifier directement TOUT les fichiers présents dans TOUT les dossiers et sous dossiers du dossier ouvert, pensez à faire une copie de vos dossier avant toute chose pour limiter les risques de perte de données !
 
-## 1. Bouton de création d'une liste; 
+## 1. Supprimer des mots des noms; 
 
-ce dernier permet de sélectionner un dossier. Ceci fait, il prendra en compte tout les fichiers images contenus dans ce dossier ainsi que dans les sous-dossiers, et établira des listes de ces dernières informations dans chaque dossiers, avec une liste principale contenant toute les données de chaque listes additionnées.
+Ce bouton permet la suppression d'expressions régulières des noms des images, par exemple si vous ne souhaitez pas de "," ou un mot en particulier, vous pouvez simplement l'écrire en ajoutant un nouveau mot a supprimé. Ce n'est pas grave si vous laissez des cases vides, utilisez des espaces des symboles ou autre, il n'y a aucune limitation.
 
-ⁿᵒᵗᵉ *Vous pouvez ajouter des données de tailles, telles que 50x40x35cm ou 09x01cm "longueur"x"hauteur"x"profondeur"cm. le formatage doit se faire sans majuscules, sans espaces, et avec un cm a la fin, un programme viendra corriger vos fautes d'innatention mais il n'est pas infaillible, donc essayez d'éviter les erreurs.*
+Par ailleurs, si vous etes familier avec Python, vous pouvez également rentrer du code dans les cases destiné à "regex", la librairie "re" qui est utilisé dans ce programme pour supprimer des patterns d'expressions.
 
+Par exemple, imaginons le cas ou vous avez à supprimer des prix du nom de vos fichiers, vous pouvez utiliser: 
+
+```
+\d+(?:[,.]\d{1,2})?\s*(?i)((?<=\s)|(?<=\d)(?=\s*x)|$)(euros?|eur|euro|e)(?=\s|$)
+```
+* \d+ : correspond à une suite de chiffres d'une longueur quelconque (au moins un chiffre).
+(?:[,.]\d{1,2})? : correspond à un point ou une virgule suivi de deux chiffres décimaux, éventuellement présents (l'expression est facultative grâce au ?).
+
+* \s* : correspond à zéro ou plusieurs caractères d'espacement (espaces, tabulations, etc.).
+
+* (?i) : active le mode insensible à la casse, ce qui permet de matcher indifféremment les majuscules et les minuscules.
+
+* ((?<=\s)|(?<=\d)(?=\s*x)|$) : utilise des assertions pour limiter la correspondance à certains cas précis :
+
+* - (?<=\s) : correspond à une position qui suit immédiatement un caractère d'espacement.
+
+* - (?<=\d)(?=\s*x) : correspond à une position qui suit immédiatement un chiffre, et qui est suivie immédiatement par un caractère "x" précédé ou non d'espaces.
+
+* -  $ : correspond à la fin de la chaîne.
+
+* (euros?|eur|euro|e) : correspond à l'une des chaînes de caractères "euro", "euros", "eur" ou "e".
+
+* (?=\s|$) : correspond à une position qui précède immédiatement un caractère d'espacement ou la fin de la chaîne.
 
 ## 2. Renommer les images
 
