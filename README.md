@@ -14,7 +14,11 @@ Trieur version ~1.0.0 | Python version 3.11.1 | 🇫🇷 | For every OS but run 
 
 # Présentation : 
 
-Comme dit dans l'énnoncé, ce logiciel permet aux artistes cotés AKOUN tels que Nathacha , artiste peintre de l'abstraction https://www.artnathacha.com/ , à créer plus rapidement une liste de prix relative à leu cotation pour leurs oeuvres (ou à des fins éducatives). Il permet également de manipuler ces listes ainsi que les fichiers, dans le but de les trier, manipuler plus facilement.
+Ce logiciel permet aux artistes cotés AKOUN, tels que Nathacha , artiste peintre de l'abstraction https://www.artnathacha.com/ , à créer plus rapidement une liste de prix relative à leur cotation pour leurs oeuvres (ou à des fins éducatives). Il permet également de manipuler ces listes ainsi que les fichiers, dans le but de les trier, manipuler plus facilement.
+
+Il permet également de renommer par lot d'images, d'ajouter ou d'y retirer des mots réccurents, mais aussi de créer des tableaux excel pour une comptabilité plus rapide,une meilleure gestion des stocks. 
+
+**Notez qu'il demande l'ouverture d'un dossier, mais qu'il traite le contenu de tout les sous-dossiers présents à l'interieur, donc pensez à faire une copie de vos fichiers avant de les manipuler afin d'éviter une perte de donnée !**
 
 ⁿᵒᵗᵉ *Un bon anti-malware vous donnera toujours un faux positif pour le fichier .exe puisqu'il n'est pas signé, cependant vous avez le code et j'ai meme écris une notice sur comment compiler le programme vous meme.*
 
