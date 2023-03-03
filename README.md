@@ -39,12 +39,11 @@ Voici un apercus du logiciel (Version 0.9.9.9999999) :
 
 ![global](https://user-images.githubusercontent.com/92639080/222796734-14c65748-d69a-421f-8ce5-9613ffb8b987.png)
 
-# Contenu et utilisation:
+# Contenu et utilisation
 
 IMPORTANT : Pour commencer, veuillez noter que ce logiciel va modifier directement TOUT les fichiers présents dans TOUT les dossiers et sous dossiers du dossier ouvert, pensez à faire une copie de vos dossier avant toute chose pour limiter les risques de perte de données !
 
-## 1. Supprimer des mots des noms; 
-
+## 1. Supprimer des mots des noms
 Ce bouton permet la suppression d'expressions régulières des noms des images, par exemple si vous ne souhaitez pas de "," ou un mot en particulier, vous pouvez simplement l'écrire en ajoutant un nouveau mot a supprimé. Ce n'est pas grave si vous laissez des cases vides, utilisez des espaces des symboles ou autre, il n'y a aucune limitation.
 
 Par ailleurs, si vous etes familier avec Python, vous pouvez également rentrer du code dans les cases destiné à "regex", la librairie "re" qui est utilisé dans ce programme pour supprimer des patterns d'expressions.
