@@ -7,34 +7,15 @@ QPushButton {
     font-size: 16px;
 }
 
-QPushButton#remove_regex {
+QPushButton#by {
     background-color: #ffe600;
     color: black;
     font-size: 18px;
 }
 
-QPushButton#price_maker {
+QPushButton#yb {
     background-color: #292929;
     color: #ffe600; 
-    font-size: 18px;
-}
-
-QPushButton#list_files {
-    background-color: #ffe600;
-    color: black;
-    font-size: 18px;
-}
-
-QPushButton#filigrane {
-    background-color: #292929;
-    color: #ffe600; 
-    font-size: 18px;
-}
-
-
-QPushButton#renamer {
-    background-color: #ffe600;
-    color: black;
     font-size: 18px;
 }
 
