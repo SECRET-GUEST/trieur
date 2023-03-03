@@ -119,8 +119,11 @@
 #| |\ | [__   |  |__| |    |    |__|  |  | |  | |\ |
 #| | \| ___]  |  |  | |___ |___ |  |  |  | |__| | \|
                 
+#A la base j'avais split le programme en plusieurs pages donc j'ai préféré créer 
+#Un index de bibliotheques à part ;
 
 from common import *           
+
 #___  ____ _ _ _ ____ ____    ___  _    ____ _  _ ___
 #|__] |  | | | | |___ |__/    |__] |    |__| |\ |  |
 #|    |__| |_|_| |___ |  \    |    |___ |  | | \|  |
