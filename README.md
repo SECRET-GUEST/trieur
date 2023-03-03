@@ -59,11 +59,11 @@ Par exemple, imaginons le cas ou vous avez à supprimer des prix du nom de vos f
 
 * ((?<=\s)|(?<=\d)(?=\s*x)|$) : utilise des assertions pour limiter la correspondance à certains cas précis :
 
-* - (?<=\s) : correspond à une position qui suit immédiatement un caractère d'espacement.
+ - (?<=\s) : correspond à une position qui suit immédiatement un caractère d'espacement.
 
-* - (?<=\d)(?=\s*x) : correspond à une position qui suit immédiatement un chiffre, et qui est suivie immédiatement par un caractère "x" précédé ou non d'espaces.
+ - (?<=\d)(?=\s*x) : correspond à une position qui suit immédiatement un chiffre, et qui est suivie immédiatement par un caractère "x" précédé ou non d'espaces.
 
-* -  $ : correspond à la fin de la chaîne.
+ -  $ : correspond à la fin de la chaîne.
 
 * (euros?|eur|euro|e) : correspond à l'une des chaînes de caractères "euro", "euros", "eur" ou "e".
 
