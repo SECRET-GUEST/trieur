@@ -1,4 +1,4 @@
-Version : beta 5 | Python version 3.11.1 |Optimisé pour windows 11
+Version : beta 1.0.0 | Python version 3.11.1 | FR | For every OS but run better on Windows
 
 ```
 ████████╗██████╗ ██╗███████╗██╗   ██╗██████╗    ███████╗██╗  ██╗███████╗
@@ -8,12 +8,6 @@ Version : beta 5 | Python version 3.11.1 |Optimisé pour windows 11
    ██║   ██║  ██║██║███████╗╚██████╔╝██║  ██║██╗███████╗██╔╝ ██╗███████╗
    ╚═╝   ╚═╝  ╚═╝╚═╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝
 ```
-
-
-# EN VUE D'UNE REFONTE COMPLETE DU LOGICIEL, CE DERNIER N'EST PLUS DISPONNIBLE POUR LE MOMENT
-
-Je publierai une version complete avant Mars si tout se passe bien
-
 
 # Instructions :
 
