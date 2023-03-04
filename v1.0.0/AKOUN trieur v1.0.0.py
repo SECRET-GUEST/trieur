@@ -119,10 +119,22 @@
 #| |\ | [__   |  |__| |    |    |__|  |  | |  | |\ |
 #| | \| ___]  |  |  | |___ |___ |  |  |  | |__| | \|
                 
-#A la base j'avais split le programme en plusieurs pages donc j'ai préféré créer 
-#Un index de bibliotheques à part ;
 
-from common import *           
+import os
+import re
+import sys
+import csv
+import logging
+import configparser
+
+from PIL import Image
+from unidecode import unidecode
+
+from PyQt5.QtCore import Qt, QFile, QTextStream
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QPushButton, QFileDialog, QLabel, QLineEdit, QCheckBox,QVBoxLayout,
+                             QWidget, QMessageBox, QTextBrowser, QStyleFactory, QDialog, qApp)
+from PyQt5.QtWebEngineWidgets import QWebEngineView        
 
 #___  ____ _ _ _ ____ ____    ___  _    ____ _  _ ___
 #|__] |  | | | | |___ |__/    |__] |    |__| |\ |  |
@@ -927,33 +939,37 @@ class trieur(QMainWindow):
                 
         #On créer le pop-up pour demander l'ajout du filigrane
         fili_pop_up = QWidget()
-        fili_pop_up.setWindowTitle("Ajouter un filigrane")
-        fili_pop_up.setFixedSize(300, 150)
+        fili_pop_up.setWindowTitle("Ajouter de mots à la fin du nom de l'image")
+        fili_pop_up.setFixedSize(200, 150)
                 
-
-        label = QLabel(fili_pop_up)
-        label.setText("Voulez-vous ajouter un filigrane ?")
-        label.move(10, 10)
+        fili_label = QLabel(fili_pop_up)
+        fili_label.setText("Ajouter des mots à la fin\ndes noms des images :")
                 
         #Entrée de texte pour le filigrane
-        entry = QLineEdit(fili_pop_up)
-        entry.move(10, 40)
-        entry.setPlaceholderText("Entrer un filigrane (minuscules uniquement)")
+        fili_entry = QLineEdit(fili_pop_up)
+        fili_entry.setPlaceholderText("Entrer un filigrane (sans symboles)")
                 
         #Le bouton pour appliquer le texte        
-        button = QPushButton(fili_pop_up)
-        button.setText("Lancer")
-        button.move(10, 80)
-        button.clicked.connect(lambda: filimaking(entry.text(), fili_pop_up))
-                
+        fili_button = QPushButton(fili_pop_up)
+        fili_button.setText("Lancer")
+        fili_button.clicked.connect(lambda: filimaking(fili_entry.text(), fili_pop_up))
+
+        layout = QVBoxLayout()
+
+        layout.addSpacing(10)
+        layout.addWidget(fili_label)
+        layout.addSpacing(10)
+        layout.addWidget(fili_entry)
+        layout.addSpacing(10)
+        layout.addWidget(fili_button)
+        layout.addSpacing(10)
+
+        fili_pop_up.setLayout(layout) 
         fili_pop_up.show()
 
 
-                
 
-                
-
-                
+       
 #____ ____ _  _ ____ _  _ ____ ____ 
 #|__/ |___ |\ | |__| |\/| |___ |__/ 
 #|  \ |___ | \| |  | |  | |___ |  \ 
@@ -963,50 +979,61 @@ class trieur(QMainWindow):
                 
     def rename(self):
         self.select_folder()
+
         try:
-            for subdir, _, files in os.walk( self.folder ):
+            for subdir, _, files in os.walk(self.folder):
                 #On établit notre compteur a 1 a chaque fois qu'il recherche dans un autre dossier
                 counter = 1
-                
+
                 try :
                     for filename in files:
-                        extension = os.path.splitext( filename )[1] #on stock notre extension dans une "colone" a part de l'image
-                
+                        extension = os.path.splitext(filename)[1].lower()
+
                         try:#Si un dossier contient une image possedant une extension contenue (dans la liste suivante établie par GPT-3 (merci encore OpenAI))
                             if extension in ['.bmp', '.dib', '.dcx', '.gif', '.im', '.jpg', '.jpe', '.jpeg', '.pcd', '.pcx', '.png', '.pbm', '.pgm', '.ppm', '.psd', '.tif', '.tiff', '.xbm', '.xpm', '.pdf'] :
                                 try:
-                                    new_name = str(counter ) + extension
+                                    new_name = str(counter) + extension
                                     #On rajoute +1 au compteur qui sera également son nom
                                     counter += 1
-                
-                                    old = os.path.join( subdir, filename )
-                
+
+                                    old = os.path.join(subdir, filename)
+
                                 except Exception as e:
-                                    self.ERRORS("J'ai perdu le chemin de l'image {filename} dans le dossier {subdir}", e) #Oui je sais, je m'éclate 𓆝 𓆟 𓆞 𓆝 𓆟 
+                                    self.ERRORS("J'ai perdu le chemin d'une image", e)
                                     return     
                                                             
                                 try:
                                     new = os.path.join(subdir, new_name)
-                
+
                                     os.rename(old, new)
-                
+
                                 except Exception as e:
-                                    self.ERRORS("Je n'arrive pas à renommer {filename}", e)
+                                    self.ERRORS("Je n'arrive pas à renommer une image", e)
                                     return 
                         
                         except Exception as e:
-                            self.ERRORS("L'extension {extension} de {filename} pose problème", e)
+                            self.ERRORS("Une extension pose problème", e)
                             return 
                         
                 except Exception as e:
-                    self.ERRORS("{filename} pose problème", e)
+                    self.ERRORS("un fichier pose problème", e)
                     return 
         
+  
         except Exception as e:
-            self.ERRORS("{subdir} ou {self.folder} pose problème", e)
+            self.ERRORS("Un dossier pose problème", e)
             return 
         
+
+
+
+
+
         QMessageBox.information(self, "Information", "toute les images ont été renommées")
+
+
+
+
                 
 
 #____ ____ ____ ___  _  _ _ ____ ____ _       _  _ ____ ____ ____    _ _  _ ___ ____ ____ ____ ____ ____ ____ 
