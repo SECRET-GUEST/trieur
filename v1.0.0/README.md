@@ -44,15 +44,15 @@ pyinstaller --onefile --icon="...\tireur.ico" --add-data "...\Beta 7\*;ico" --ad
 
 Explications :
 
---onefile : crée un exécutable unique qui inclut toutes les dépendances.
+`--onefile` : crée un exécutable unique qui inclut toutes les dépendances.
 
---icon=icone.ico : spécifie l'icône à utiliser pour l'exécutable (remplacez icone.ico par le chemin de votre fichier d'icône).
+`--icon=icone.ico` : spécifie l'icône à utiliser pour l'exécutable (remplacez icone.ico par le chemin de votre fichier d'icône).
 
---add-data "chemin\vers\fichier\*;nom_du_dossier" : ajoute des fichiers externes nécessaires au programme. Le chemin vers le fichier et le nom du dossier dans lequel le fichier sera extrait doivent être séparés par un point-virgule (;). Vous pouvez ajouter plusieurs fichiers en les séparant par des points-virgules, ou tout les fichiers du dossier concerné en ajoutant \* à la fin.
+`--add-data` "chemin\\vers\\fichier\*;nom_du_dossier" : ajoute des fichiers externes nécessaires au programme. Le chemin vers le fichier et le nom du dossier dans lequel le fichier sera extrait doivent être séparés par un point-virgule (;). Vous pouvez ajouter plusieurs fichiers en les séparant par des points-virgules, ou tout les fichiers du dossier concerné en ajoutant \* à la fin.
 
-script.py : spécifie le nom de votre script Python.
+`script.py` : spécifie le nom de votre script Python.
 
---noconsole : masque la console lors de l'exécution de l'exécutable.
+`--noconsole` : masque la console lors de l'exécution de l'exécutable.
 
 Assurez-vous de remplacer les parties en italique par les noms de vos fichiers et dossiers. Notez également que le chemin doit être spécifié en fonction du système d'exploitation sur lequel vous travaillez.
 
