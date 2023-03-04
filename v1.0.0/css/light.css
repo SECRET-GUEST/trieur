@@ -51,6 +51,7 @@ QTextBrowser {
 }
 
 QMessageBox#akoun QLabel {
+    background-color: #8ECAE6;
     color: #023047; 
     font-size: 20px;
 }
