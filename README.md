@@ -85,7 +85,7 @@ Ce bouton vous permet globalement de renommer toute les images présentes dans l
 
      - Si les images n'ont pas de profondeur (c'est a dire de 1, ou de 0), il ne prendra pas en compte la profondeur dans le calcul du prix via la cote akoun.
 
-ⁿᵒᵗᵉ *Pour les images possedant une taille au format "30x30cm" ou "30x30x30cm", afin que la detection de taille s'effectue, mieux vaut formater vos prix pour qu'ils ressemblent a ce que j'ai écris, la regle  de recherche est très tolérante, mais vous risquez quand meme de vous retrouver avec des erreurs si vous faites vraiment n'importe quoi.*
+ⁿᵒᵗᵉ *Pour les images possedant une taille il faut qu'elle soit au format "00x00cm" ou "00x00x00cm", afin que la detection de taille s'effectue*
 
 2. Une fois la taille trouvée il va essayer de la formater correctement, puis il ajoutera un prix défini par la cote AKOUN qu'il vous sera demandé d'entrer.
 
