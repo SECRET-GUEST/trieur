@@ -134,7 +134,7 @@ from PyQt5.QtCore import Qt, QFile, QTextStream
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QPushButton, QFileDialog, QLabel, QLineEdit, QCheckBox,QVBoxLayout,
                              QWidget, QMessageBox, QTextBrowser, QStyleFactory, QDialog, qApp)
-from PyQt5.QtWebEngineWidgets import QWebEngineView        
+from PyQt5.QtWebEngineWidgets import QWebEngineView
 
 #___  ____ _ _ _ ____ ____    ___  _    ____ _  _ ___
 #|__] |  | | | | |___ |__/    |__] |    |__| |\ |  |
@@ -523,23 +523,8 @@ class trieur(QMainWindow):
                     image_info["type"] = os.path.basename(subdir) 
                 
                     with Image.open(os.path.join(subdir, file)) as picture:
-                        sizes = re.findall(r'(?i)\b\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?\s*(?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){2}(?!\s*x)[^x]*(?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){0,2}\s*(?:x\s*)?(cm|mm|m)\b', file.lower()) #On regarde si il y a des expressions de taille de chaque image
+                        sizes = re.findall(r'(\d+)x(\d+)(?:x(\d+))?(?:cm)?', file.lower()) #On regarde si il y a des expressions de taille de chaque image
 
-                    # Je prefere le noter parceque c'est un bordel :
-                    # (?i) : regex insensible à la casse
-                    # \b : limite de mot
-                    # \d+ : suit de nombres
-                    # (?:[.,]\d{1,2})? : chifres avec décimales
-                    # \s* : espaces vides, 0 ..
-                    # (?:cm|mm|m)? : les cm, mm et m
-                    # \s* 
-                    # (?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){2} : expression qui se répète 2x, composée d'un "x",0 ou plusieurs espaces, des chiffres, des chiffres a décimales, des 0, des espaces et les tailles m mm cm, ...
-                    # (?!\s*x) : ne doit pas être suivi par "x", évite de recup les parties de dimensions supplémentairs
-                    # [^x]* : 0 ou plusieurs caractères autres que "x"
-                    # (?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){0,2} : une expression qui peut se répèter 0 à 2x
-                    # \s* 
-                    # (?:x\s*)?
-                    # (cm|mm|m)\b : cm, mm et m + limite de mot
 
 
                         if sizes: #Si il y en a
@@ -605,7 +590,7 @@ class trieur(QMainWindow):
                     #on récupere l'ancien nom et on le modifie en le séparant d'abord de l'extension puis en supprimant les anciennes valeurs de tailles pour ne pas les avoir en double par la suite
                     old_path = os.path.join(subdir, file)
                     old_name, extension = os.path.splitext(file) 
-                    old_name = re.sub(r'(?i)\b\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?\s*(?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){2}(?!\s*x)[^x]*(?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){0,2}\s*(?:x\s*)?(cm|mm|m)\b', '', old_name, flags=re.IGNORECASE).strip()
+                    old_name = re.sub(r'(\d+)x(\d+)(?:x(\d+))?(?:cm)?', '', old_name, flags=re.IGNORECASE).strip()
                 
                     #On renomme avec le nouveau prix si l'utilisateur a utilisé une cote, sinon on renomme sans le prix
                     if cote_akoun is not None and cote_akoun > 0: 
@@ -647,7 +632,7 @@ class trieur(QMainWindow):
                     with open(file_path, "w", encoding="utf8") as f:
                         for line in lines:
 
-                            new_line = re.sub(r'(?i)\b\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?\s*(?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){2}(?!\s*x)[^x]*(?:x\s*\d+(?:[.,]\d{1,2})?\s*(?:cm|mm|m)?){0,2}\s*(?:x\s*)?(cm|mm|m)\b', '', line.lower())
+                            new_line = re.sub(r'(\d+)x(\d+)(?:x(\d+))?(?:cm)?', '', line.lower())
                             new_line = re.sub(r'(\s{2,})', ' ', new_line).strip() + '\n' 
                             
                             if new_line.strip() or line.strip(): #vérifie si les lignes sont vides ou non
@@ -747,54 +732,54 @@ class trieur(QMainWindow):
             layout.addWidget( regex_input )
             regex_inputs.append( regex_input)
     
-        #Nis regles d'interface graphique pour la suppression des expressions régulières inutiles
-        remove_button = QPushButton("Supprimer")
-        layout.addWidget( remove_button)
-        remove_button.clicked.connect( dialog.accept)
-    
-        btn_add_regex = QPushButton("Ajout d'une expression à supprimer")
-        btn_add_regex.clicked.connect(add_regex_input)
-        layout.addWidget( btn_add_regex )
-    
-        if dialog.exec_()== QDialog.Accepted: #Si l'utilisateur a cliqué sur le bouton "Supprimer", on supprime les expressions régulières inutiles
-            regex_list   = [regex_input.text() for regex_input in regex_inputs]
-
-        else:
-            return
+            #Nis regles d'interface graphique pour la suppression des expressions régulières inutiles
+            remove_button = QPushButton("Supprimer")
+            layout.addWidget( remove_button)
+            remove_button.clicked.connect( dialog.accept)
         
+            btn_add_regex = QPushButton("Ajout d'une expression à supprimer")
+            btn_add_regex.clicked.connect(add_regex_input)
+            layout.addWidget( btn_add_regex )
         
-        #On compile toute les formes, les patterns d 'expressions régulières choisies
-        regex_patterns =  [re.compile(regex) for regex in regex_list]
+            if dialog.exec_()== QDialog.Accepted: #Si l'utilisateur a cliqué sur le bouton "Supprimer", on supprime les expressions régulières inutiles
+                regex_list   = [regex_input.text() for regex_input in regex_inputs]
     
-        #On recherche tout les fichiers dans tout les dossiers du dossier selectionné
-        for subdir, _, files in os.walk(folder):
-            for filename in files:
-                
-                new_filename =  filename
-
-                #On applique toutes les expressions régulières a notre nouveau nom de fichie
-                for regex in regex_patterns:
-                    new_filename = regex.sub('', new_filename)
-
-                #On définit les nouveau chemins
-                if new_filename != filename: 
-                    old_path = os.path.join(subdir, filename)
-                    new_path = os.path.join(subdir, new_filename)
+            else:
+                return
+            
+            
+            #On compile toute les formes, les patterns d 'expressions régulières choisies
+            regex_patterns =  [re.compile(regex) for regex in regex_list]
+        
+            #On recherche tout les fichiers dans tout les dossiers du dossier selectionné
+            for subdir, _, files in os.walk(folder):
+                for filename in files:
+                    
+                    new_filename =  filename
     
-                    if os.path.exists(new_path):
-                        #Le fichier existe déjà, renommer le fichier avec un nom unique définit par la fonction plus haut
-                        new_name = self.get_unique_filename(subdir, new_filename)
-                        new_path = os.path.join(subdir, new_name)
-
-                    #Puis on finit en remplacant l'ancien chemin par le nouveau
-                    os.rename(old_path, new_path)
-                
-
-                
-
-                
-        #On terminera en affichant un pop up expliquant que le script a bien fonctionné.
-        QMessageBox.information(self, "Information", "Je suis entrain de trier correctement supprimer tout ca.")
+                    #On applique toutes les expressions régulières a notre nouveau nom de fichie
+                    for regex in regex_patterns:
+                        new_filename = regex.sub('', new_filename)
+    
+                    #On définit les nouveau chemins
+                    if new_filename != filename: 
+                        old_path = os.path.join(subdir, filename)
+                        new_path = os.path.join(subdir, new_filename)
+        
+                        if os.path.exists(new_path):
+                            #Le fichier existe déjà, renommer le fichier avec un nom unique définit par la fonction plus haut
+                            new_name = self.get_unique_filename(subdir, new_filename)
+                            new_path = os.path.join(subdir, new_name)
+    
+                        #Puis on finit en remplacant l'ancien chemin par le nouveau
+                        os.rename(old_path, new_path)
+                    
+    
+                    
+    
+                    
+            #On terminera en affichant un pop up expliquant que le script a bien fonctionné.
+            QMessageBox.information(self, "Information", "Je suis entrain de trier correctement supprimer tout ca.")
                 
 
                 
@@ -1066,8 +1051,9 @@ class trieur(QMainWindow):
 
         self.list_files = QPushButton("Lister les images", self, objectName="lists")
         self.list_files.clicked.connect(self.listing)
-                        
 
+        
+                        
         self.renamer = QPushButton("Renommer 1.2..3...", self, objectName="rename")
         self.renamer.clicked.connect(self.rename)
 
@@ -1088,7 +1074,7 @@ class trieur(QMainWindow):
         #Maintenant on  définit notre tutoriel en fonction de notre barre de défilement via du HTML
         self.tuto.setOpenExternalLinks(True) #On active le clic sur les liens.
 
-        with open(ressource_path("tuto.html"), "r", encoding='utf-8') as f_htm: #on lit la page et on l'affiche
+        with open(ressource_path("html/tuto.html"), "r", encoding='utf-8') as f_htm: #on lit la page et on l'affiche
             html = f_htm.read()
             self.tuto.setHtml(html)
      
@@ -1113,6 +1099,7 @@ class trieur(QMainWindow):
         layout.addWidget(self.renamer)
         layout.addSpacing(50)
         layout.addWidget(self.tuto)
+
         
                 
         #On centralise les widgets, les éléments que l'on a créé dans notre grille
