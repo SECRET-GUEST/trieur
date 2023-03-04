@@ -23,19 +23,23 @@ Vous pouvez créer vous meme l'executable depuis le fichier python, il vous suff
 pip install pyinstaller
 ```
 
-Une fois l'installation faites, vous avez 2 possibilités:
+Une fois l'installation faites, vous avez 2 possibilités, mais avant toute chose, vérifiez qu'il n'y a pas d'espaces dans le nom de vos fichier a compiler, sinon vous aurez des erreurs.
 
 Vous pouvez modifier le fichier ruby ".spec", qui devra se situer à la racine des fichiers/dossiers que vous désirez compiler, en rajoutant vos propres chemins.
 
-Puis naviguez avec votre cmd et la commande `cd` la ou se trouve le fichier "AKOUN_trieur_v1.0.0.spec" en utilisant la commande 
+Puis naviguez avec votre cmd et la commande `cd` la ou se trouve le fichier "AKOUN_trieur_v1.0.0.spec" en utilisant la commande
+
+
 ```
 pyinstaller AKOUN_trieur_v1.0.0.spec 
 ```
 
+Par ailleurs, je vous recommande d'utiliser les paths absolu ( `\\` entre chaque parties du chemin, par exemple `c:\\path\\test.py`)
+
 Ou alors vous pouvez le faire directement dans le cmd (en remplacant par vos paths) : 
 
 ```
-pyinstaller --onefile --icon="...\tireur.ico" --add-data "...\Beta 7\*;ico" --add-data "...\html\*;html" --add-data "...\css\*;css"--noconsole test.py
+pyinstaller --onefile --icon="...\tireur.ico" --add-data "...\Beta 7\*;ico" --add-data "...\html\*;html" --add-data "...\css\*;css"--noconsole trieur_v1.0.0.spec.py
 ```
 
 Explications :
