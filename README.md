@@ -27,11 +27,9 @@ Il permet également de renommer par lot d'images, d'ajouter ou d'y retirer des 
 
 ## Changements à venir :
 
-- [ ] Correction de bugs mineurs comme certains éléments de l'interface visuelle.
-- [ ] Correction de bug majeurs dut à la compilation et l'encodage.
-- [ ] Amélioration de la version executable.
-- [ ] Rajout de fonctions pour trier des listes ".txt" et ".csv"
-- [ ] Ajout d'un menu pour changer les thèmes autres trucs random que font les menus d'application github, comme plusieurs pages d'aide qui n'existent pas.
+- [ ] Ajout de fonctionnalités comme le fait de pouvoir remplacer des mots dans les noms d'images
+- [ ] Correction de bugs mineurs
+- [ ] Changement plus ergonomique de l'interface visuelle
 
 
 Voici un apercus du logiciel (Version 0.9.9.9999999) : 
