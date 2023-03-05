@@ -12,7 +12,7 @@ Trieur version 1.0.1 | Python version 3.11.1 | 🇫🇷 | For every OS but run b
 
 
 
-# Si vous vous appelez Cyril et que vous etes comptable, vous allez adorer !
+# Améliore la gestion de vos oeuvres d'art informatisée !
 
 Ce logiciel permet aux artistes cotés AKOUN, tels que Nathacha , artiste peintre de l'abstraction https://www.artnathacha.com/ , à créer plus rapidement une liste de prix relative à leur cotation pour leurs oeuvres (ou à des fins éducatives). Il permet également de manipuler ces listes ainsi que les fichiers, dans le but de les trier, manipuler plus facilement.
 
@@ -35,33 +35,34 @@ Voici un apercus du logiciel (Version 0.9.9.9999999) :
 IMPORTANT : Pour commencer, veuillez noter que ce logiciel va modifier directement TOUT les fichiers présents dans TOUT les dossiers et sous dossiers du dossier ouvert, pensez à faire une copie de vos dossier avant toute chose pour limiter les risques de perte de données !
 
 ## 1. Supprimer des mots des noms
-Ce bouton permet la suppression d'expressions régulières des noms des images, par exemple si vous ne souhaitez pas de "," ou un mot en particulier, vous pouvez simplement l'écrire en ajoutant un nouveau mot a supprimé. Ce n'est pas grave si vous laissez des cases vides, utilisez des espaces des symboles ou autre, il n'y a aucune limitation.
+Ce bouton permet la suppression d'expressions régulières des noms des images, par exemple si vous ne souhaitez pas de `,` ou un mot en particulier, vous pouvez simplement l'écrire en ajoutant un nouveau mot a supprimé. Ce n'est pas grave si vous laissez des cases vides, utilisez des espaces des symboles ou autre, il n'y a aucune limitation.
 
-Par ailleurs, si vous etes familier avec Python, vous pouvez également rentrer du code dans les cases destiné à "regex", la librairie "re" qui est utilisé dans ce programme pour supprimer des patterns d'expressions.
+Par ailleurs, si vous etes familier avec Python, vous pouvez également rentrer du code dans les cases destiné à `regex`, la librairie `re` qui est utilisé dans ce programme pour supprimer des patterns d'expressions.
 
 Par exemple, imaginons le cas ou vous avez à supprimer des prix du nom de vos fichiers, vous pouvez utiliser: 
 
 ```
 \d+(?:[,.]\d{1,2})?\s*(?i)((?<=\s)|(?<=\d)(?=\s*x)|$)(euros?|eur|euro|e)(?=\s|$)
 ```
-1. \d+ : correspond à une suite de chiffres d'une longueur quelconque (au moins un chiffre).
-(?:[,.]\d{1,2})? : correspond à un point ou une virgule suivi de deux chiffres décimaux, éventuellement présents (l'expression est facultative grâce au ?).
+1. `\d+` : correspond à une suite de chiffres d'une longueur quelconque (au moins un chiffre).
 
-2. \s* : correspond à zéro ou plusieurs caractères d'espacement (espaces, tabulations, etc.).
+2. `(?:[,.]\d{1,2})?` : correspond à un point ou une virgule suivi de deux chiffres décimaux, éventuellement présents (l'expression est facultative grâce au `?`).
 
-3. (?i) : active le mode insensible à la casse, ce qui permet de matcher indifféremment les majuscules et les minuscules.
+3. `\s*` : correspond à zéro ou plusieurs caractères d'espacement (espaces, tabulations, etc.).
 
-4. ((?<=\s)|(?<=\d)(?=\s*x)|$) : utilise des assertions pour limiter la correspondance à certains cas précis :
+4. `(?i)` : active le mode insensible à la casse, ce qui permet de matcher indifféremment les majuscules et les minuscules.
 
-    - (?<=\s) : correspond à une position qui suit immédiatement un caractère d'espacement.
+5. `((?<=\s)|(?<=\d)(?=\s*x)|$)` : utilise des assertions pour limiter la correspondance à certains cas précis :
 
-    - (?<=\d)(?=\s*x) : correspond à une position qui suit immédiatement un chiffre, et qui est suivie immédiatement par un caractère "x" précédé ou non d'espaces.
+    - `(?<=\s)` : correspond à une position qui suit immédiatement un caractère d'espacement.
 
-    -  $ : correspond à la fin de la chaîne.
+    - `(?<=\d)(?=\s*x)` : correspond à une position qui suit immédiatement un chiffre, et qui est suivie immédiatement par un caractère `x` précédé ou non d'espaces.
 
-5. (euros?|eur|euro|e) : correspond à l'une des chaînes de caractères "euro", "euros", "eur" ou "e".
+    -  `$` : correspond à la fin de la chaîne.
 
-6. (?=\s|$) : correspond à une position qui précède immédiatement un caractère d'espacement ou la fin de la chaîne.
+6. `(euros?|eur|euro|e)` : correspond à l'une des chaînes de caractères `euro`, `euros`, `eur` ou `e`.
+
+7. `(?=\s|$)` : correspond à une position qui précède immédiatement un caractère d'espacement ou la fin de la chaîne.
 
 
 ## 2. Renommer les images avec la cote AKOUN
@@ -76,7 +77,7 @@ Ce bouton vous permet globalement de renommer toute les images présentes dans l
 
      - Si les images n'ont pas de profondeur (c'est a dire de 1, ou de 0), il ne prendra pas en compte la profondeur dans le calcul du prix via la cote akoun.
 
-ⁿᵒᵗᵉ *Pour les images possedant une taille il faut qu'elle soit au format "00x00cm" ou "00x00x00cm", afin que la detection de taille s'effectue*
+ⁿᵒᵗᵉ *Pour les images possedant une taille il faut qu'elle soit au format `00x00cm` ou `00x00x00cm`, afin que la detection de taille s'effectue*
 
 2. Une fois la taille trouvée il va essayer de la formater correctement, puis il ajoutera un prix défini par la cote AKOUN qu'il vous sera demandé d'entrer.
 
@@ -88,7 +89,7 @@ Prix = ((Longueur x hauteur x profondeur ) x Cote Akoun)/3250
 
 ⁿᵒᵗᵉ *Si vous n'entrez pas de cote AKOUN, le nouveau nom ne contiendra aucun prix*
 
-3. Pour finir le logiciel attribuera un nouveau nom contenant toute les informations, avec chaque catégories séparées par des ",". J'ai jugé cette délimitation utile pour plusieurs raisons : 
+3. Pour finir le logiciel attribuera un nouveau nom contenant toute les informations, avec chaque catégories séparées par des `,`. J'ai jugé cette délimitation utile pour plusieurs raisons : 
  
    - Le nom est plus facile à lire.
    - Cela aide pour le référencement dans les grandes bases de données d'images présente dans les moteur de recherche.
@@ -101,7 +102,7 @@ Cette fonction vous permet d'ajouter un filigrane, pour certaines raisons les sy
 par exemple vous pouvez donné une indication pour votre site ; art nathacha com.
 
 
-ⁿᵒᵗᵉ *Ce nouveu texte viendra accompagné d'une "," le précédent, par conséquent lors de la prochaine fonction il sera pris en compte comme étant une nouvelle catégorie.
+ⁿᵒᵗᵉ *Ce nouveu texte viendra accompagné d'une `,` le précédent, par conséquent lors de la prochaine fonction il sera pris en compte comme étant une nouvelle catégorie.
 
 ## 4. Créer une liste
 
@@ -109,13 +110,13 @@ Cette fonction va lister toute vos images présente dans tout les dossiers et so
 
 Vous aurez une option pour créer une liste regroupant tout les dossiers et sous-dossiers, mais également la possibilité de créer une liste dans chaque sous-dossiers.
 
-ⁿᵒᵗᵉ *Lorsque vous créer une liste, si une liste du meme nom est présente dans le dossier, ses informations seront totalement remplacées par les nouvelles, il est possible de faire en sorte de les ajouter plutot que de les supprimer en remplacant le "w" dans le code python par "a", a la ligne correspondant à l'enregistrement des fichiers, je peux également faire parraitre ca sous forme de bouton au besoin, n'hésitez pas à demander cette fonction.*
+ⁿᵒᵗᵉ *Lorsque vous créer une liste, si une liste du meme nom est présente dans le dossier, ses informations seront totalement remplacées par les nouvelles, il est possible de faire en sorte de les ajouter plutot que de les supprimer en remplacant le `w` dans le code python par `a`, a la ligne correspondant à l'enregistrement des fichiers, je peux également faire parraitre ca sous forme de bouton au besoin, n'hésitez pas à demander cette fonction.*
 
 ## 5. Renommer selon une suite
 
 Ce bouton permet de renommer toute les images contenues dans un dossier choisi, **AINSI QUE** toute celles présente dans les sous-dossiers inclus dans ce dernier. Le renommage se fera selon une suite 1.jpg 2.png 3........
 
-ⁿᵒᵗᵉ *Initialement cette fonction étaie prévue pour pouvoir remplacer les noms plus facilement via une liste, ou plus exactement un tableau .csv, le tout exécuté par l'appuie d'un 6eme bouton, mais je n'ai pas réussi avec python à convertir l'encodage des listes pour chaque type d'os, par conséquent cette fonction est en stanby pour le moment, pareil si vous en avez vraiment besoin, je reste apte à l'implémenter*
+ⁿᵒᵗᵉ *Initialement cette fonction étaie prévue pour pouvoir remplacer les noms plus facilement via une liste, ou plus exactement un tableau `.csv`, le tout exécuté par l'appuie d'un 6eme bouton, mais je n'ai pas réussi avec python à convertir l'encodage des listes pour chaque type d'os, par conséquent cette fonction est en stanby pour le moment, pareil si vous en avez vraiment besoin, je reste apte à l'implémenter*
 
 
 
@@ -145,7 +146,7 @@ However here is the procedure to run the script:
 ```
 python script.pyw
 ```
-(where "script.pyw" is obviously the name of what you've downloaded)
+(where `script.pyw` is obviously the name of what you've downloaded)
 
 
 # For microsoft users;
@@ -161,7 +162,7 @@ The .exe file is a portable version made for microsoft users with pyinstaller, y
 
 ## 2. Run with Python
 
-"Python script" is directory with the original script for python 3.11. 
+`Python script` is directory with the original script for python 3.11. 
 
 In case you have a lower version you may have to download module imported not included with your version. 
 Just read the first lines of the script in Alexandria with a notepad or whatever to find what's missing.
@@ -198,25 +199,17 @@ pyinstaller --onefile --icon="...YOUR PATH.../YOUR ICON.ico" --add-data "...YOUR
 
 Here are the explanations of the different options:
 
-- [ ] --onefile
+- `--onefile` :creates a single executable that includes all dependencies.
 
- creates a single executable that includes all dependencies.
+- `--icon=icon.ico` :specifies the icon to use for the executable (replace icon.ico with the path to your icon file).
 
-- [ ] --icon=icon.ico
+- `--add-data "path/to/file;folder_name"` :
 
-specifies the icon to use for the executable (replace icon.ico with the path to your icon file).
+adds external files required by the program. The path to the file and the name of the folder in which the file will be extracted should be separated by a semicolon `;`. You can add multiple files by separating them with semicolons.
 
-- [ ] --add-data "path/to/file;folder_name"
+- ` script.py`: specifies the name of your Python script.
 
-adds external files required by the program. The path to the file and the name of the folder in which the file will be extracted should be separated by a semicolon (;). You can add multiple files by separating them with semicolons.
-
-- [ ] script.py
-
-specifies the name of your Python script.
-
-- [ ] --noconsole
-
-hides the console when the executable is run.
+- ` --noconsole` : hides the console when the executable is run.
 
 
 Make sure to replace the snipped parts with the names of your files and folders. Also note that the path should be specified based on the operating system you are working on.
