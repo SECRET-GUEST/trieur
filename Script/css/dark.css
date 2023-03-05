@@ -1,0 +1,54 @@
+
+QWidget {
+    background-color: #292929;
+    color: white;
+}
+QMessageBox#alert {
+    background-color: #292929;
+    color: white;
+
+}
+QPushButton {
+    font-size: 16px;
+}
+
+QPushButton#roronoe {
+
+    background-color: #41EAD4;
+    color: #0C0F0A;
+
+}
+
+QPushButton#regex {
+    background-color: #333531;
+    color: #fff; 
+}
+
+QPushButton#price {
+    background-color: #333531;
+    color: #fff;
+
+}
+QPushButton#fili {
+    background-color: #333531;
+    color: #fff;
+
+}
+
+QPushButton#lists {
+    background-color: #333531;
+    color: #fff;
+
+}
+QPushButton#rename {
+    background-color: #333531;
+    color: #fff;
+
+}
+
+QTextBrowser {    
+    text-align: center;    
+    color: white;
+    border: 1px solid #0C0F0A;
+    background-color: #404040;
+}
