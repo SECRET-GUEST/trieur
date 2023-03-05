@@ -169,7 +169,7 @@ Just read the first lines of the script in Alexandria with a notepad or whatever
 
 If you would like to run with python **YOU WILL NEED THE IMAGE .png PLACED IN THE SAME DIRECTORY OF THE RUNNING SCRIPT**.
 
-Also you can add a w to the extension (like "script.pyw"). It means "windowed mode", to launch the python script without the CMD but it's still a common python file.
+Also you can add a w to the extension (like `script.pyw`). It means `windowed mode`, to launch the python script without the CMD but it's still a common python file.
 
 
 ## 3. Compile the script by yourself 
@@ -234,7 +234,7 @@ If Python is in path, you can just ;
 python "C:\ **YOUR PATH TO THE SCRIPT** \script.pyw"
 ```
 
-- [ ] Rename the "new_file.txt" by "script.bat" then just click on and it will run the progra
+- [ ] Rename the `new_file.txt` by `script.bat` then just click on and it will run the progra
 
 ```
      _ ._  _ , _ ._            _ ._  _ , _ ._    _ ._  _ , _ ._      _ ._  _ , _ .__  _ , _ ._   ._  _ , _ ._   _ , _ ._   .---.  _ ._   _ , _ .__  _ , _ ._   ._  _ , _ ._      _ ._  _ , _ .__  _ , _ . .---<__. \ _
