@@ -25,13 +25,6 @@ Il permet également de renommer par lot d'images, d'ajouter ou d'y retirer des 
 [![Download AKOUN trieur](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/trieur/files/latest/download)
 
 
-## Changements à venir :
-
-- [ ] Ajout de fonctionnalités comme le fait de pouvoir remplacer des mots dans les noms d'images
-- [ ] Correction de bugs mineurs
-- [ ] Changement plus ergonomique de l'interface visuelle
-
-
 Voici un apercus du logiciel (Version 0.9.9.9999999) : 
 
 
