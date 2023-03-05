@@ -1,5 +1,5 @@
 [![Download AKOUN trieur](https://img.shields.io/sourceforge/dt/trieur.svg)](https://sourceforge.net/projects/trieur/files/latest/download)
-Trieur version 1.0.0 | Python version 3.11.1 | 🇫🇷 | For every OS but run better on Windows 
+Trieur version 1.0.1 | Python version 3.11.1 | 🇫🇷 | For every OS but run better on Windows 
 
 ```
 ████████╗██████╗ ██╗███████╗██╗   ██╗██████╗    ███████╗██╗  ██╗███████╗
