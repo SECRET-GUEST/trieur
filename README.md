@@ -43,21 +43,19 @@ Bon, je pense pas vraiment avoir à présenter ce mode, mais dans le cas ou vous
 ## 2. Tout en un
 Permet de travailler plus rapidement en lançant automatiquement une à une les fonctions principales de cette liste.
 
-        <b>Attention</b> : Une fois le dossier choisi, il n'y a pas de possibilité de retour en arrière jusqu'à que l'ensemble du programme se soit exécuté.
-
 **Attention** : Une fois le dossier choisi, il n'y a pas de possibilité de retour en arrière jusqu'à que l'ensemble du programme se soit exécuté.
 
  Voici la liste dans l'ordre des fonctions qui se lanceront via ce mode, et ainsi qu'un bref résumé des methodes qui seront également décrites plus tard :
 
-        1. Choix du dossier contenant les images à retoucher, incluant l'ensemble des fichiers présents dans les dossiers / sous-dossiers du dossiers concernés.
+   1. Choix du dossier contenant les images à retoucher, incluant l'ensemble des fichiers présents dans les dossiers / sous-dossiers du dossiers concernés.
  
-        2. Supprimer des mots des noms des images.
+   2. Supprimer des mots des noms des images.
 
-        3. Renommer avec ou sans le prix via la cote AKOUN, en ajoutant des "," délimitant chaques parties du nom afin de formater les images plus éfficacement pour des mots-clés ou leur inclusion dans un tableur.
+   3. Renommer avec ou sans le prix via la cote AKOUN, en ajoutant des "," délimitant chaques parties du nom afin de formater les images plus éfficacement pour des mots-clés ou leur inclusion dans un tableur.
 
-        4. Ajout d'un filigrane, plus exactement de mots entre l'extension et le reste du texte de l'image(qui pourront également faire office de catégorie dans les futurs tableaux).
+   4. Ajout d'un filigrane, plus exactement de mots entre l'extension et le reste du texte de l'image(qui pourront également faire office de catégorie dans les futurs tableaux).
     
-        5. Créer une liste reprenant le nom des images, et l'enregistre au format .csv, ouvrable avec n'importe quel éditeur de texte, avec Google Drive ou tout simplement Excel. 
+   5. Créer une liste reprenant le nom des images, et l'enregistre au format .csv, ouvrable avec n'importe quel éditeur de texte, avec Google Drive ou tout simplement Excel. 
  
 
 ## 3. Supprimer des mots des noms
