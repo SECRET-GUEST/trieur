@@ -35,7 +35,31 @@ Voici un apercu du logiciel (Version 0.9.9.9999999) :
 
 IMPORTANT : Pour commencer, veuillez noter que ce logiciel va modifier directement TOUT les fichiers présents dans TOUT les dossiers et sous dossiers du dossier ouvert, pensez à faire une copie de vos dossier avant toute chose pour limiter les risques de perte de données !
 
-## 1. Supprimer des mots des noms
+## 1. D4rk/l1ght mode
+
+Bon, je pense pas vraiment avoir à présenter ce mode, mais dans le cas ou vous viviez dans une grotte jusqu'à maintenant, ce boutton permet d'afficher le thème coloré du logiciel selon mode souhaité par l'utilisateur, dark pour gagner en confort durant la nuit, ou pour les personnes ayant les yeux plus sensibles et inversement. 
+
+## 2. Tout en un
+Permet de travailler plus rapidement en lançant automatiquement une à une les fonctions principales de cette liste.
+
+        <b>Attention</b> : Une fois le dossier choisi, il n'y a pas de possibilité de retour en arrière jusqu'à que l'ensemble du programme se soit exécuté.
+
+**Attention** : Une fois le dossier choisi, il n'y a pas de possibilité de retour en arrière jusqu'à que l'ensemble du programme se soit exécuté.
+
+ Voici la liste dans l'ordre des fonctions qui se lanceront via ce mode, et ainsi qu'un bref résumé des methodes qui seront également décrites plus tard :
+
+        1. Choix du dossier contenant les images à retoucher, incluant l'ensemble des fichiers présents dans les dossiers / sous-dossiers du dossiers concernés.
+ 
+        2. Supprimer des mots des noms des images.
+
+        3. Renommer avec ou sans le prix via la cote AKOUN, en ajoutant des "," délimitant chaques parties du nom afin de formater les images plus éfficacement pour des mots-clés ou leur inclusion dans un tableur.
+
+        4. Ajout d'un filigrane, plus exactement de mots entre l'extension et le reste du texte de l'image(qui pourront également faire office de catégorie dans les futurs tableaux).
+    
+        5. Créer une liste reprenant le nom des images, et l'enregistre au format .csv, ouvrable avec n'importe quel éditeur de texte, avec Google Drive ou tout simplement Excel. 
+ 
+
+## 3. Supprimer des mots des noms
 Ce bouton permet la suppression d'expressions régulières des noms des images, par exemple si vous ne souhaitez pas de `,` ou un mot en particulier, vous pouvez simplement l'écrire en ajoutant un nouveau mot a supprimé. Ce n'est pas grave si vous laissez des cases vides, utilisez des espaces des symboles ou autre, il n'y a aucune limitation.
 
 Par ailleurs, si vous etes familier avec Python, vous pouvez également rentrer du code dans les cases destiné à `regex`, la librairie `re` qui est utilisé dans ce programme pour supprimer des patterns d'expressions.
@@ -66,7 +90,7 @@ Par exemple, imaginons le cas ou vous avez à supprimer des prix du nom de vos f
 7. `(?=\s|$)` : correspond à une position qui précède immédiatement un caractère d'espacement ou la fin de la chaîne.
 
 
-## 2. Renommer les images avec la cote AKOUN
+## 4. Renommer les images avec la cote AKOUN
 
 Ce bouton vous permet globalement de renommer toute les images présentes dans les dossiers et sous-dossiers du dossier sélectionné, voici ses fonctions :
 
@@ -97,7 +121,7 @@ Prix = ((Longueur x hauteur x profondeur ) x Cote Akoun)/3250
    - Mais plus important encore, cela permet de créer facilement des listes ou des tableaux avec des catégories pour vos images.
 
 
-## 3. Ajout de texte dans les noms
+## 5. Ajout de texte dans les noms
 
 Cette fonction vous permet d'ajouter un filigrane, pour certaines raisons les symboles autre que les espaces ne sont pas autorisés.
 par exemple vous pouvez donné une indication pour votre site ; art nathacha com.
@@ -105,7 +129,7 @@ par exemple vous pouvez donné une indication pour votre site ; art nathacha com
 
 ⁿᵒᵗᵉ *Ce nouveu texte viendra accompagné d'une `,` le précédent, par conséquent lors de la prochaine fonction il sera pris en compte comme étant une nouvelle catégorie.
 
-## 4. Créer une liste
+## 6. Créer une liste
 
 Cette fonction va lister toute vos images présente dans tout les dossiers et sous dossier du répertoire que vous avez ouvert, cette liste sera au format .csvn qui est un format excel lu par google drive par exemple, mais vous pouvez également l'ouvrir sous forme de texte en changeant l'extension de fichier en .txt, ou autre.
 
@@ -113,7 +137,15 @@ Vous aurez une option pour créer une liste regroupant tout les dossiers et sous
 
 ⁿᵒᵗᵉ *Lorsque vous créer une liste, si une liste du meme nom est présente dans le dossier, ses informations seront totalement remplacées par les nouvelles, il est possible de faire en sorte de les ajouter plutot que de les supprimer en remplacant le `w` dans le code python par `a`, a la ligne correspondant à l'enregistrement des fichiers, je peux également faire parraitre ca sous forme de bouton au besoin, n'hésitez pas à demander cette fonction.*
 
-## 5. Renommer selon une suite
+## 7. Tout renommer aléatoirement 
+Cette fonction génère des noms aléatoires pour chaque images présentes dans les sous-dossiers ou dossiers d'un répertoire choisis au préalable.
+
+
+## 8.Remplacement de mots dans les noms
+Tout est dit dans le titre, cette fonction remplace les mots présents dans les noms par ceux que vous souhaitez, il vous suffira de lire les instructions, d'entrer les mots dans les bonnes cases puis de cliquer sur le boutton "remplacer les mots".
+
+
+## 9. Renommer selon une suite
 
 Ce bouton permet de renommer toute les images contenues dans un dossier choisi, **AINSI QUE** toute celles présente dans les sous-dossiers inclus dans ce dernier. Le renommage se fera selon une suite 1.jpg 2.png 3........
 
