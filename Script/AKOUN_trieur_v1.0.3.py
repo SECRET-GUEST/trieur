@@ -1074,9 +1074,8 @@ if __name__ == "__main__":
 
     window = trieur()
 
-    time.sleep(2) #On attend 1 seconde pour lancer le programme
+    time.sleep(2) #On attend 1 seconde pour lancer le programme pour flex le logo
     #On ferme le logo apres que la fenetre soit initialisée
-    
     splash.finish(None)
 
     sys.exit(app.exec_())
