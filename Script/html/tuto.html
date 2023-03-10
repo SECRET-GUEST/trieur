@@ -38,12 +38,48 @@
 <br> <br> <br>  
 -->
 </div>
+
 <div href="1" class="h3">
-        <h3>1. Supprimer des mots des noms </h3></div>
+        <h3>1. Dark/Light mode </h3></div>
+<div  class="t_h3">
+<br><br>
+        Ce boutton permet d'afficher le thème coloré du logiciel selon mode souhaité par l'utilisateur, dark pour gagner en confort durant la nuit, ou pour les personnes ayant les yeux plus sensibles et inversement. 
+<br><br> 
+</div>
+
+<div href="2" class="h3">
+        <h3>2. Tout en un </h3></div>
+<div  class="t_h3">
+<br><br>
+        Permet de travailler plus rapidement en lançant automatiquement une à une les fonctions principales de cette liste.
+<br><br> 
+        <b>Attention</b> : Une fois le dossier choisi, il n'y a pas de possibilité de retour en arrière jusqu'à que l'ensemble du programme se soit exécuté.
+<br><br> 
+        <b>Attention</b> : Une fois le dossier choisi, il n'y a pas de possibilité de retour en arrière jusqu'à que l'ensemble du programme se soit exécuté.
+<br><br> 
+        Voici la liste dans l'ordre des fonctions qui se lanceront via ce mode, et ainsi qu'un bref résumé des methodes qui seront également décrites plus tard :
+<br><br> 
+        1. Choix du dossier contenant les images à retoucher, incluant l'ensemble des fichiers présents dans les dossiers / sous-dossiers du dossiers concernés.
+<br><br>  
+        2. Supprimer des mots des noms des images.
+<br><br> 
+        3. Renommer avec ou sans le prix via la cote AKOUN, en ajoutant des "," délimitant chaques parties du nom afin de formater les images plus éfficacement pour des mots-clés ou leur inclusion dans un tableur.
+<br><br>
+        4. Ajout d'un filigrane, plus exactement de mots entre l'extension et le reste du texte de l'image(qui pourront également faire office de catégorie dans les futurs tableaux).
+<br><br>     
+        5. Créer une liste reprenant le nom des images, et l'enregistre au format .csv, ouvrable avec n'importe quel éditeur de texte, avec Google Drive ou tout simplement Excel. 
+<br><br>   
+</div>
+
+
+<div href="3" class="h3">
+        <h3>3. Supprimer des mots des noms </h3></div>
 <br><br>
 <div class="t_h3">
         Ce bouton permet la suppression d'expressions régulières des noms des images, par exemple si vous ne souhaitez pas de "," ou un mot en particulier, vous pouvez simplement l'écrire en ajoutant un nouveau mot a supprimé. Ce n'est pas grave si vous laissez des cases vides, utilisez des espaces des symboles ou autre, il n'y a aucune limitation.
+<br>
         Par ailleurs, si vous etes familier avec Python, vous pouvez également rentrer du code dans les cases destiné à "regex", la librairie "re" qui est utilisé dans ce programme pour supprimer des patterns d'expressions.
+<br><br>
         Par exemple, imaginons le cas ou vous avez à supprimer des prix du nom de vos fichiers, vous pouvez utiliser: 
 <br><br>
 </div>
@@ -73,8 +109,8 @@
 <code>(?=\s|$)</code>  : correspond à une position qui précède immédiatement un caractère d'espacement ou la fin de la chaîne.
 <br><br>
 </div>
-<div href="2" class="h3">
-        <h3>2. Renommer les images avec la cote AKOUN </h3></div>
+<div href="4" class="h3">
+        <h3>4. Renommer les images avec la cote AKOUN </h3></div>
 <div  class="t_h3">
 <br><br>
         Ce bouton vous permet globalement de renommer toute les images présentes dans les dossiers et sous-dossiers du dossier sélectionné, voici ses fonctions :
@@ -121,7 +157,14 @@
 <br><br>
 </div>
 <div href="4" class="h3">
-        <h3>4. Créer une liste </h3></div>
+        <h3>4. Filigrane </h3></div>
+<br><br>
+<div  class="t_h3">
+        Cette fonction permet d'ajouter des mots à la fin du nom des images, entre l'extension et le reste des mots, avec une "," au début du mot pour délimitation.
+<br><br>
+</div>
+<div href="5" class="h3">
+        <h3>5. Créer une liste </h3></div>
 <br><br>
 <div  class="t_h3">
         Cette fonction va lister toute vos images présente dans tout les dossiers et sous dossier du répertoire que vous avez ouvert, cette liste sera au format .csvn qui est un format excel lu par google drive par exemple, mais vous pouvez également l'ouvrir sous forme de texte en changeant l'extension de fichier en .txt, ou autre.
@@ -131,8 +174,29 @@
         ⁿᵒᵗᵉ <em>Lorsque vous créer une liste, si une liste du meme nom est présente dans le dossier, ses informations seront totalement remplacées par les nouvelles, il est possible de faire en sorte de les ajouter plutot que de les supprimer en remplacant le "w" dans le code python par "a", a la ligne correspondant à l'enregistrement des fichiers, je peux également faire parraitre ca sous forme de bouton au besoin, n'hésitez pas à demander cette fonction.</em>
 <br><br>
 </div>
-<div href="5" class="h3">
-        <h3>5. Renommer selon une suite </h3></div>
+<div href="6" class="h3">
+        <h3>6. Générer un nom aléatoire </h3></div>
+<br><br>
+<div  class="t_h3">
+        Cette fonction génère un nom aléatoire dans le texte en dessous, vous pouvez le copier ou zoomer sur le nom au besoin.
+<br><br>
+</div>
+<div href="7" class="h3">
+        <h3>7. Tout renommer aléatoirement </h3></div>
+<br><br>
+<div  class="t_h3">
+        Cette fonction génère des noms aléatoires pour chaque images présentes dans les sous-dossiers ou dossiers d'un répertoire choisis au préalable.
+<br><br>
+</div>
+<div href="8" class="h3">
+        <h3>8. Remplacement de mots dans les noms </h3></div>
+<br><br>
+<div  class="t_h3">
+        Tout est dit dans le titre, cette fonction remplace les mots présents dans les noms par ceux que vous souhaitez, il vous suffira de lire les instructions, d'entrer les mots dans les bonnes cases puis de cliquer sur le boutton "remplacer les mots".
+<br><br>
+</div>
+<div href="9" class="h3">
+        <h3>9. Renommer selon une suite </h3></div>
 <br><br>
 <div  class="t_h3">
         Ce bouton permet de renommer toute les images contenues dans un dossier choisi, <strong>AINSI QUE</strong> toute celles présente dans les sous-dossiers inclus dans ce dernier. Le renommage se fera selon une suite 1.jpg 2.png 3........
