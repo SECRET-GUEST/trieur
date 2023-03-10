@@ -26,7 +26,7 @@ Il permet également de renommer par lot d'images, d'ajouter ou d'y retirer des 
 [![Download AKOUN trieur](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/trieur/files/latest/download)
 
 
-Voici un apercus du logiciel (Version 0.9.9.9999999) : 
+Voici un apercu du logiciel (Version 0.9.9.9999999) : 
 
 
 ![global](https://user-images.githubusercontent.com/92639080/222796734-14c65748-d69a-421f-8ce5-9613ffb8b987.png)
