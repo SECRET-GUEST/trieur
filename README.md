@@ -35,6 +35,8 @@ Voici un apercu du logiciel (Version 0.9.9.9999999) :
 
 IMPORTANT : Pour commencer, veuillez noter que ce logiciel va modifier directement TOUT les fichiers présents dans TOUT les dossiers et sous dossiers du dossier ouvert, pensez à faire une copie de vos dossier avant toute chose pour limiter les risques de perte de données !
 
+ⁿᵒᵗᵉ *Le logiciel génère un fichier errors.log ainsi qu'un fichier config.ini à la racine du repertoire ou il aura été lancé, à chaque fois qu'il le sera. Vous pouvez supprimez ces fichiers sans soucis, ils ne servent qu'a retenir vos preferences et à afficher les possibles erreurs rencontrée.
+
 ## 1. D4rk/l1ght mode
 
 Bon, je pense pas vraiment avoir à présenter ce mode, mais dans le cas ou vous viviez dans une grotte jusqu'à maintenant, ce boutton permet d'afficher le thème coloré du logiciel selon mode souhaité par l'utilisateur, dark pour gagner en confort durant la nuit, ou pour les personnes ayant les yeux plus sensibles et inversement. 
