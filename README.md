@@ -141,7 +141,7 @@ Vous aurez une option pour créer une liste regroupant tout les dossiers et sous
 Cette fonction génère des noms aléatoires pour chaque images présentes dans les sous-dossiers ou dossiers d'un répertoire choisis au préalable.
 
 
-## 8.Remplacement de mots dans les noms
+## 8. Remplacement de mots dans les noms
 Tout est dit dans le titre, cette fonction remplace les mots présents dans les noms par ceux que vous souhaitez, il vous suffira de lire les instructions, d'entrer les mots dans les bonnes cases puis de cliquer sur le boutton "remplacer les mots".
 
 
