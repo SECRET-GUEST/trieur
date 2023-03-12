@@ -820,7 +820,8 @@ class trieur(QMainWindow):
         with open(os.path.join(folder, os.path.basename(folder)+".csv"), "w", newline="", encoding="utf-8") as f:
 
             writer = csv.writer(f)
-            writer.writerow(['Dossier', 'numéro', 'nom', 'taille', 'prix', 'filigrane', 'extension'])
+            #Décommenter pour rajouter les noms de colonne suivant:
+            #writer.writerow(['Dossier', 'numéro', 'nom', 'taille', 'prix', 'filigrane', 'extension'])
 
             for image in images:
                 filename = os.path.basename(image)
@@ -862,7 +863,8 @@ class trieur(QMainWindow):
                     with open(os.path.join(subdir, os.path.basename(subdir)+ ".csv"), "w", newline="",   encoding="utf-8") as f:
 
                         writer = csv.writer(f)
-                        writer.writerow(['Dossier', 'numéro', 'nom','taille', 'prix', 'filigrane','extension'] )
+                        #Décommenter pour rajouter les noms de colonne suivant:
+                        #writer.writerow(['Dossier', 'numéro', 'nom', 'taille', 'prix', 'filigrane', 'extension'])
 
                         for image in images:
 
