@@ -27,6 +27,8 @@ Il permet également de renommer par lot d'images, d'ajouter ou d'y retirer des 
 
 # En cours de developpement : 
 
+Les différentes sujes décris dans cette liste ne sont présent qu'à titre informatif, la liste ne sera ni exhaustive, ni définitive, ou encore inéluctable.
+
 * Fonction de clic automatique
 * Corrections de bugs
 * Ajout d'un menu
@@ -36,7 +38,9 @@ Il permet également de renommer par lot d'images, d'ajouter ou d'y retirer des 
 * Diversifier les possibilité de listes, txt, pdf...
 * Themes reglable pour l'application
 * Incorporation de listes de mots personnels pour la génération de noms aléatoire
-
+* Fonction pour hoisir le type de média ciblé (autre que les images)
+* Fonction pour renommer par d'autres moyen de tri, par exemple "modifier le", par "type",...
+* Fonction pour convertir des types de fichiers en d'autres type à l'aide d'FFMPEG
 
 Voici un apercu du logiciel (Version 0.9.9.9999999) : 
 
