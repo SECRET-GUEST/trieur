@@ -12,7 +12,6 @@ Trieur version 1.0.3 | Python version 3.11.1 | 🇫🇷 | For every OS but run b
 ```
 
 
-
 # Améliore la gestion de vos oeuvres d'art informatisée !
 
 Ce logiciel permet aux artistes cotés AKOUN, tels que Nathacha , artiste peintre de l'abstraction https://www.artnathacha.com/ , à créer plus rapidement une liste de prix relative à leur cotation pour leurs oeuvres (ou à des fins éducatives). Il permet également de manipuler ces listes ainsi que les fichiers, dans le but de les trier, manipuler plus facilement.
@@ -24,6 +23,19 @@ Il permet également de renommer par lot d'images, d'ajouter ou d'y retirer des 
 ⁿᵒᵗᵉ *Un bon anti-malware vous donnera toujours un faux positif pour le fichier .exe puisqu'il n'est pas signé, cependant vous avez le code et j'ai meme écris une notice sur comment compiler le programme vous meme.*
 
 [![Download AKOUN trieur](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/trieur/files/latest/download)
+
+
+# En cours de developpement : 
+
+* Fonction de clic automatique
+* Corrections de bugs
+* Ajout d'un menu
+* Optimisation du code
+* Amélioration de l'interface visuelle
+* Creation de l'application pour tablette/smartphone (Android et Apple)
+* Diversifier les possibilité de listes, txt, pdf...
+* Themes reglable pour l'application
+* Incorporation de listes de mots personnels pour la génération de noms aléatoire
 
 
 Voici un apercu du logiciel (Version 0.9.9.9999999) : 
