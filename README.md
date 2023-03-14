@@ -27,7 +27,7 @@ Il permet également de renommer par lot d'images, d'ajouter ou d'y retirer des 
 
 # En cours de developpement : 
 
-Les différentes sujes décris dans cette liste ne sont présent qu'à titre informatif, la liste ne sera ni exhaustive, ni définitive, ou encore inéluctable.
+Les différentes sujes décrits dans cette liste ne sont présent qu'à titre informatif, la liste ne sera ni exhaustive, ni définitive, ou encore inéluctable.
 
 * Fonction de clic automatique
 * Corrections de bugs
